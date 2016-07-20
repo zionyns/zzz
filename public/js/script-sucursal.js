@@ -6,7 +6,7 @@ $(document).ready(function(){
 function Carga(){
 	//tabla donde duardamos la lista de sucursales
 	var tablaDatos = $("#datos-sucursal");
-	var route = "http://localhost/Joyeria/public/sucursal";
+	var route = "http://localhost/zzz/public/sucursal";
 
 	$("#datos-sucursal").empty();
 
@@ -20,7 +20,7 @@ function Carga(){
 
 
 function Eliminar(btn){
-	var route = "http://localhost/Joyeria/public/sucursal/"+btn.value+"";
+	var route = "http://localhost/zzz/public/sucursal/"+btn.value+"";
 	var token = $("#token").val();
 	$.ajax({
 		url: route,
@@ -36,7 +36,7 @@ function Eliminar(btn){
 
 
 function Mostrar(btn){
-	var route = "http://localhost/Joyeria/public/sucursal/"+btn.value+"/edit";
+	var route = "http://localhost/zzz/public/sucursal/"+btn.value+"/edit";
 
 	$.get(route, function(res){
 		
@@ -62,7 +62,7 @@ $(document).on('click', '#actualizar',function (){
 	var dato1 = $("#CodSucursal").val();
 	var dato2 = $("#NombreSucursal").val();
 	var dato3 = $("#Direccion").val();
-	var route = "http://localhost/Joyeria/public/sucursal/"+value+"";
+	var route = "http://localhost/zzz/public/sucursal/"+value+"";
 	var token = $("#token").val();
 
 
@@ -106,7 +106,7 @@ $(document).on('click', '#registro-sucursal',function (){
 	
 	//ruta a la que hacemos referencia
 	
-	var route = "http://localhost/Joyeria/public/sucursal";
+	var route = "http://localhost/zzz/public/sucursal";
 	var token = $("#token").val();
 
 	$.ajax({

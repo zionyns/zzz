@@ -22,7 +22,7 @@ $("#btnRecorrer").click(function ()
 
 		alert(codigo + ' - ' + fecha + ' - ' + ' - ' + usuario+ ' - ' + sucursal); 	 	
 
-		var route1 = "http://localhost/Joyeria/public/ingreso";
+		var route1 = "http://localhost/zzz/public/ingreso";
 		var token = $("#token").val();
 
 		$.ajax({
@@ -68,7 +68,7 @@ $("#btnRecorrer").click(function ()
 
 
 
-            var route = "http://localhost/Joyeria/public/detalleingreso";
+            var route = "http://localhost/Joyeria/zzz/detalleingreso";
 			var token = $("#token").val();
 
 			$.ajax({

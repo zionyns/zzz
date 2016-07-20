@@ -10,7 +10,7 @@ $("#total" ).focus(function() {
 
 $(document).on('change','#codigo',function (){
     var codigo = $("#codigo").val();
-    var route = "http://localhost/Joyeria/public/producto/"+codigo+"/edit";
+    var route = "http://localhost/zzz/public/producto/"+codigo+"/edit";
 
     $.get(route, function(res) {
         $("#nombre").val(res.nombre);
@@ -70,7 +70,7 @@ $("#btnRecorrer").click(function ()
     var descuento = (preciopagado*100)/preciototal;
     var descuento = 100-descuento;
 
-    var route1 = "http://localhost/Joyeria/public/venta";
+    var route1 = "http://localhost/zzz/public/venta";
     var token = $("#token").val();
 
     console.log(codigo,fecha,tipomoneda,preciototal,vendedor,vendedorsecundario,descuento);
@@ -118,7 +118,7 @@ $("#btnRecorrer").click(function ()
 
 
 
-            var route = "http://localhost/Joyeria/public/detalleventa";
+            var route = "http://localhost/zzz/public/detalleventa";
             var token = $("#token").val();
 
             $.ajax({
@@ -157,7 +157,7 @@ $("#btnRecorrer").click(function ()
                 $(this).css("background-color", "#ECF8E0");
             })
 
-            var route = "http://localhost/Joyeria/public/pagoventa";
+            var route = "http://localhost/zzz/public/pagoventa";
             var token = $("#token").val();
 
             $.ajax({
@@ -199,7 +199,7 @@ $("#btnRecorrer").click(function ()
 
 
 
-                            var route = "http://localhost/Joyeria/public/ventausuario";
+                            var route = "http://localhost/zzz/public/ventausuario";
                             var token = $("#token").val();
 
                             $.ajax({

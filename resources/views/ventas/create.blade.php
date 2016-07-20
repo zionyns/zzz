@@ -140,7 +140,7 @@
         </div>
         
         <div class="col-md-2">
-            <button type="button" id="agregar" class="btn btn-primary ">Agregar</button>
+            <button type="button" id="agregar" class="btn btn-primary" onclick="agregar_fila();">Agregar</button>
         </div>
         </div>
 
@@ -426,23 +426,23 @@
 	} 
 
 
+	function agregar_fila() {
+    
+
     var tablaVentaProducto = document.getElementById('tabla-ventaProducto');
-	var txtCodigo= document.getElementById('codigo');
-	var txtNombre = document.getElementById('nombre');
-	//var txtTipo = document.getElementById('tipo');
-	//var txtPeso = document.getElementById('peso');
-	var txtPrecio = document.getElementById('precio');
+    var txtCodigo= document.getElementById('codigo');
+    var txtNombre = document.getElementById('nombre');
+    //var txtTipo = document.getElementById('tipo');
+    //var txtPeso = document.getElementById('peso');
+    var txtPrecio = document.getElementById('precio');
     var txtCantidad = document.getElementById('cantidad');
     var txtTotal = document.getElementById('total');
 
-	var btnAgregar = document.getElementById('agregar');
-	var txtpreciototalanterior = document.getElementById('preciototal');
+    var btnAgregar = document.getElementById('agregar');
+    var txtpreciototalanterior = document.getElementById('preciototal');
 
 
 
-	function btnAgregar_Click(event) {
-
-    
     var codigo = txtCodigo.options[txtCodigo.selectedIndex].text || '';
     var nombre = txtNombre.value || '';
     //var tipo = txtTipo.value || '';
@@ -551,18 +551,7 @@
 			
 
         document.getElementById('preciototal').value = parseFloat(item.total)+parseFloat(pta);
-        //crear boton editar
-        var nuevoBoton = document.createElement('button');
-        nuevoBoton.type = 'button';
-        nuevoBoton.value = 'Editar';
-        nuevoBoton.className="btn btn-danger"
-        
-        //nuevoBoton.addEventListener('click', btnEditar_Click);
-        tdoperaciones.appendChild(nuevoBoton);
      
-
-
-
         //crear boton eliminar
         var element2 = document.createElement("input");
                
@@ -588,7 +577,7 @@
             document.getElementById('preciototal').value=preciototalActual - precioRemover;
         }
 	};
-	btnAgregar.addEventListener('click', btnAgregar_Click);
+	
 
 
 
