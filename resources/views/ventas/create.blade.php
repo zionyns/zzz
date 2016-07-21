@@ -122,7 +122,10 @@
 
         <div class="col-md-2">
             <label for="unitario">precio:</label>
+            <div class="input-group">
+            <div class="input-group-addon">S/.</div>
             <input type="number" name="titulo" id="precio" class="form-control" required />
+            </div>
 
 
         </div>
@@ -136,7 +139,10 @@
 
          <div class="col-md-2">
             <label for="total">total:</label>
+            <div class="input-group">
+            <div class="input-group-addon">S/.</div>
             <input type="number" name="titulo" id="total" class="form-control" />
+            </div>
         </div>
         
         <div class="col-md-2">
@@ -183,15 +189,23 @@
 	
 
 	<div class="col-md-6">
-        
         <button type="button" id="calculartotal" class="btn btn-primary ">Importe Total</button>
+
+        
+        <div class="input-group">
+        <div class="input-group-addon">S/.</div>
+
         <input type="number" name="titulo" value="0" id="preciototal" class="form-control" disabled/>
+        </div>
     </div>
 
 	<div class="col-md-6">
         
         <button type="button" id="calculartotal" class="btn btn-primary ">Importe pagado</button>
+        <div class="input-group">
+        <div class="input-group-addon">S/.</div>
         <input type="number" name="titulo" value="" id="preciopagado" class="form-control" />
+        </div>
     </div>
     </div>
 	
@@ -284,6 +298,12 @@
 			<div class="col-md-6 col-md-offset-5">
 				
 			 {!! Form::button('Realizar pago',['id'=>'btnRecorrer','class'=>'btn btn-primary'])!!}
+
+
+          
+  
+</form>
+
 
 	</div>
 	</div>

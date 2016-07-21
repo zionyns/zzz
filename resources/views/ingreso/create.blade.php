@@ -8,31 +8,21 @@
                 <div class="panel-heading">Nuevo Ingreso de Productos</div>
                 <div class="panel-body">
 
-{!! Form::open() !!}
+        {!! Form::open() !!}
 
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
     
         
-        <div class="for-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-md-4">
                 {!! Form::label('codigo:')!!}
                 {!! Form::text('CodIngreso',$codigo,['id'=>'CodIngreso','class'=>'form-control','required','disabled'])!!}
         </div>
+    
 
-
-        <div class="for-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
-            {!! Form::label('Fecha:')!!}    
-            <div class="input-group">
-                {!! Form::text('fecha',null,['id'=>'fecha','class'=>'form-control datepicker' , 'required'])!!}
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                </div>
-            </div>
-        </div>
+                
         
-        
-        
-        <div class="form-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-md-4">
                 
             <label for="tipo">sucursal:</label>
             <select id="select-sucursales" class="form-control">
@@ -45,20 +35,29 @@
      
 
     
-        <div class="form-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
+       <div class="col-md-4">
                 {!! Form::label('usuario:')!!} 
                 {!! Form::text('usuario', Auth::user()->first_name ,['id'=>'usuario','class'=>'form-control','required','disabled'])!!}
         </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+<div class="row">
+        <div class="col-md-15 col-md-offset-15">
+            <div class="panel panel-default">
+                <div class="panel-heading">Agregar Detalles de Ingreso</div>
+                <div class="panel-body">
         
 
 
 <div >
     <form action="/" method="post">
 
-
-    
-
-        <div class="form-group col-lg-3 col-md- col-sm-2 col-xs-5" >
+        <div class="col-md-2">
             <label for="tipo">producto:</label>
             <select id="tipo" class="form-control">
                 @foreach ($productos as $p) {
@@ -68,36 +67,51 @@
         </div>
 
 
-        <div class="form-group col-lg-3 col-md-5 col-sm-5 col-xs-5">
+        <div class="col-md-2">
             <label for="unitario">precio unitario:</label>
             <input type="number" name="titulo" id="unitario" class="form-control" required />
 
 
         </div>
 
-        <div class="form-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-md-2">
             <label for="cantidad">cantidad:</label>
             <input type="number" name="titulo" id="cantidad" class="form-control" />
 
 
         </div>
         
-        <div class="form-group col-lg-3 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-md-2">
+            <label for="cantidad">peso:</label>
+            <input type="number" name="titulo" id="peso" class="form-control" />
+
+
+        </div>
+
+        <div class="col-md-2">
             <label for="total">total:</label>
             <input type="number" name="titulo" id="total" class="form-control" />
 
 
         </div>
 
-
-
-        
-        <div>
-            <button type="button" id="agregar" class="btn btn-danger">Agregar</button>
+        <div class="col-md-2">
+            <button type="button" id="agregar" class="btn btn-danger" onclick="agregar_fila();">Agregar</button>
         </div>
     </form>
 
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
 
+    <div class="row">
+        <div class="col-md-15 col-md-offset-15">
+            <div class="panel panel-default">
+                <div class="panel-heading">DETALLES</div>
+                <div class="panel-body">
 
     <table id="tabla" class="table">
         <thead>
@@ -113,14 +127,15 @@
             
         </tbody>
     </table>
-
-
-
+    </div>
+    </div>
+    </div>
+    </div>
 
 
      <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-                {!! Form::button('Recorrer',['id'=>'btnRecorrer','class'=>'btn btn-primary'])!!}
+                {!! Form::button('Realizar Ingreso ',['id'=>'btnRecorrer','class'=>'btn btn-primary'])!!}
 
             </div>
     </div>
@@ -144,29 +159,26 @@
 </div>
 </div>
 </div>
+</div>
 
 <script>
-    $('.datepicker').datepicker({
-        format: "dd/mm/yyyy",
-        language: "es",
-        autoclose: true
-    });
-
 ////////////////////////////////////////////////
 
-var tablaElementos = document.getElementById('tabla-elementos');
-
-
-var ddlTipo = document.getElementById('tipo');
-var txtUnitario = document.getElementById('unitario');
-var txtCantidad = document.getElementById('cantidad');
-var txtTotal = document.getElementById('total');
-
-var btnAgregar = document.getElementById('agregar');
 
 
 
-function btnAgregar_Click(event) {
+
+function agregar_fila() {
+
+    var tablaElementos = document.getElementById('tabla-elementos');
+
+
+    var ddlTipo = document.getElementById('tipo');
+    var txtUnitario = document.getElementById('unitario');
+    var txtCantidad = document.getElementById('cantidad');
+    var txtTotal = document.getElementById('total');
+
+    var btnAgregar = document.getElementById('agregar');
 
     //recuperamos datos y validamos////////////////////////////
     
@@ -231,18 +243,6 @@ function btnAgregar_Click(event) {
         tablaElementos.appendChild(tr);
 
 
-        //crear boton editar
-        var nuevoBoton = document.createElement('button');
-        nuevoBoton.type = 'button';
-        nuevoBoton.value = 'Editar';
-        nuevoBoton.className="btn btn-danger"
-        
-        //nuevoBoton.addEventListener('click', btnEditar_Click);
-        tdoperaciones.appendChild(nuevoBoton);
-     
-
-
-
         //crear boton eliminar
         var element2 = document.createElement("input");
                
@@ -265,7 +265,6 @@ function btnAgregar_Click(event) {
 
 };
 
-        btnAgregar.addEventListener('click', btnAgregar_Click);
           //////////////////////////////////////////////
 
 
