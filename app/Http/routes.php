@@ -23,7 +23,9 @@ Route::get('logout', 'AuthController@logOut'); // Finalizar sesión
 /*Rutas privadas solo para usuarios autenticados*/
 Route::group(['before' => 'auth'], function()
 {
+    
     Route::get('/', 'AuthController@showhome1'); // Vista de inicio
+    route::resource('venta','VentasController');
 });
 
 

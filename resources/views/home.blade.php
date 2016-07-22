@@ -40,6 +40,9 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
+
+
+
 <div class="wrapper">
   @include('includes.header')
   @include('includes.sidebar')
@@ -68,6 +71,9 @@
     </section>
     <!-- /.content -->
   </div>
+
+    
+
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
@@ -85,6 +91,9 @@
   <div class="control-sidebar-bg"></div>
 
 </div>
+
+
+
 <!-- ./wrapper -->
 
 
