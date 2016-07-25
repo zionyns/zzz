@@ -1,4 +1,21 @@
 
+$(document).ready(function(){
+      $( function() {    
+        $( "#codigo" ).autocomplete({
+            source: "http://localhost/zzz/public/producto/autocomplete",
+            minlenght:1,
+            autoFocus:true,
+            select:function(e,ui){
+                $('#idProducto').val(ui.item.id);
+                $('#nombre').val(ui.item.nombre);
+                $('#precio').val(ui.item.precio);
+                $('#stock').val(ui.item.stock);
+                console.log(ui.item.stock);
+            }
+        });
+    });
+});
+
 $("#total" ).focus(function() {
  
   var unit = $("#precio").val();
@@ -8,19 +25,19 @@ $("#total" ).focus(function() {
 });
 
 
-$(document).on('change','#codigo',function (){
-    var codigo = $("#codigo").val();
-    var route = "http://localhost/zzz/public/producto/"+codigo+"/edit";
+// $(document).on('change','#codigo',function (){
+//     var codigo = $("#codigo").val();
+//     var route = "http://localhost/zzz/public/producto/"+codigo+"/edit";
 
-    $.get(route, function(res) {
-        $("#nombre").val(res.nombre);
-        $("#tipo").val(res.tipo);
-        $("#peso").val(res.peso);
-        $("#precio").val(res.precio);
+//     $.get(route, function(res) {
+//         $("#nombre").val(res.nombre);
+//         $("#tipo").val(res.tipo);
+//         $("#peso").val(res.peso);
+//         $("#precio").val(res.precio);
         
-        console.log(res.nombre);
-    });
-});
+//         console.log(res.nombre);
+//     });
+// });
 
 
 
@@ -59,6 +76,7 @@ $("#btnRecorrer").click(function ()
     var hora = hora+':'+minuto+':'+segundo;
     var hoy = fecha+' '+hora;
 /////////////////////////////////////////////////////////////////////////////////
+    var idProducto=$("#idProducto").val();
     var codigo = $("#CodVenta").val();
     var fecha = hoy;
     var tipomoneda = $("#tipomoneda").val();
@@ -73,7 +91,7 @@ $("#btnRecorrer").click(function ()
     var route1 = "http://localhost/zzz/public/venta";
     var token = $("#token").val();
 
-    console.log(codigo,fecha,tipomoneda,preciototal,vendedor,vendedorsecundario,descuento);
+    console.log(idProducto,codigo,fecha,tipomoneda,preciototal,vendedor,vendedorsecundario,descuento);
     alert(descuento)
     $.ajax({
         url: route1,
@@ -104,17 +122,11 @@ $("#btnRecorrer").click(function ()
                             break;
                     case 4: campo5 = $(this).text();
                             break;
-
-                    case 5: campo6 = $(this).text();
-                            break;
-
-                    case 6: campo7 = $(this).text();
-                            break;
                 }
                 $(this).css("background-color", "#ECF8E0");
             })
 
-            alert(campo1 + ' - ' + campo2 + ' - ' + campo3+ ' - ' + campo4+ ' - ' + campo5+ ' - ' + campo6);
+            alert(campo1 + ' - ' + campo2 + ' - ' + campo3+ ' - ' + campo4+ ' - ' + campo5);
 
 
 
@@ -137,6 +149,18 @@ $("#btnRecorrer").click(function ()
                 }
                 })
 
+            var value = $("#idProducto").val();
+            var stockAnterior=$("#stock").val();
+            var nuevoStock=parseFloat(stockAnterior)-parseFloat(campo4);
+            console.log(value+"---"+stockAnterior+"----"+nuevoStock);
+            var route2="http://localhost/zzz/public/producto/"+value+"";
+            $.ajax({
+                url: route2,
+                headers: {'X-CSRF-TOKEN': token},
+                type: 'PUT',
+                dataType: 'json',
+                data: {"stock":nuevoStock},
+            })
         })
 
 

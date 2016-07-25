@@ -45,6 +45,7 @@ Route::get('template', function(){
 //////////////////////////////////////////////////7
 Route::resource('usuario','UsuarioController');
 
+route::	get('producto/autocomplete',array('as' =>'autocomplete','uses' =>'ProductoController@autocomplete'));
 Route::resource('producto','ProductoController');
 
 route::resource('sucursal','SucursalController');
@@ -69,7 +70,5 @@ Route::resource('ventausuario','VentausuarioController');
 
 
 
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
+Route::get('listado_reportes', 'PdfController@index');
+Route::get('crear_reporte_usuario/{tipo}', 'PdfController@crear_reporte_usuario');

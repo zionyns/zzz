@@ -99,18 +99,14 @@
 
 	<form action="/" method="post">
 			
-
+    <input type="hidden" name="idProducto" id="idProducto" class="form-control">
+    <input type="hidden" name="stock" id="stock" class="form-control">
 
 		<div class="row">
         <div class="col-md-2">
             <label for="codigo">Codigo:</label>
             
-            <select id="codigo" class="form-control">
-                <option value="0" selected>seleccione producto...</option>
-                @foreach ($productos as $p) {
-                <option value="{{$p->id}}">{{ $p->CodProducto }}</option>
-                @endforeach  
-            </select>
+            <input type="text" name="codigo" id="codigo" class="form-control" >
         </div>
 
        <div class="col-md-2">
@@ -118,7 +114,7 @@
             <input type="text" name="nombre" id="nombre" class="form-control" />
         </div>
 
-       
+     
 
         <div class="col-md-2">
             <label for="unitario">precio:</label>
@@ -463,7 +459,7 @@
 
 
 
-    var codigo = txtCodigo.options[txtCodigo.selectedIndex].text || '';
+    var codigo = txtCodigo.value || '';
     var nombre = txtNombre.value || '';
     //var tipo = txtTipo.value || '';
     //var peso = txtPeso.value || '';

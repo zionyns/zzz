@@ -11,7 +11,19 @@ use Session;
 use Redirect;
 
 class ProductoController extends Controller {
-
+	
+	public function autocomplete(Request $request)
+	{
+		$term=$request->term;
+		$data = producto::where('CodProducto','LIKE','%'.$term.'%')
+		->take(10)
+		->get();
+		$results=array();
+		foreach ($data as $key => $value) {
+			$results[]=['id'=>$value->id,'nombre'=>$value->nombre,'stock'=>$value->stock,'precio'=>$value->precio,'value'=>$value->CodProducto];
+		}
+		return response()->json($results);
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
