@@ -68,7 +68,7 @@ $("#btnRecorrer").click(function ()
 
 
 
-            var route = "http://localhost/Joyeria/zzz/detalleingreso";
+            var route = "http://localhost/zzz/public/detalleingreso";
 			var token = $("#token").val();
 
 			$.ajax({

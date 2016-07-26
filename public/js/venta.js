@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
       $( function() {    
         $( "#codigo" ).autocomplete({
@@ -15,6 +14,15 @@ $(document).ready(function(){
         });
     });
 });
+
+
+
+
+$("#mensaje" ).click(function() {
+ 
+  alertify.alert("mensaje de alerta");
+});
+
 
 $("#total" ).focus(function() {
  
@@ -40,9 +48,28 @@ $("#total" ).focus(function() {
 // });
 
 
+function confirmar(){
+      //un confirm
+      alertify.confirm("<p>Aquí confirmamos algo.<br><br><b>ENTER</b> y <b>ESC</b> corresponden a <b>Aceptar</b> o <b>Cancelar</b></p>", function (e) {
+            if (e) {
+                  alertify.success("Has pulsado '" + alertify.labels.ok + "'");
+            } else { 
+                        alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
+            }
+      }); 
+      return false
+};
 
-$("#btnRecorrer").click(function () 
-{   
+
+
+
+$("#btnRecorrer").click(function () {
+
+    alertify.confirm("desea confirmar la venta??",function(e){
+
+    if(e){
+
+
     var numerovendedores = $('#tablavendedores tr').length;
     numerovendedores=numerovendedores-1;
     alert('numero de filas'+numerovendedores);
@@ -58,24 +85,24 @@ $("#btnRecorrer").click(function ()
     var minuto = hoy.getMinutes();
     var segundo = hoy.getSeconds();
     if(dia<10){
-        dia='0'+dia
+        dia='0'+dia;
     }
     if(mes<10){
-        mes='0'+mes
+        mes='0'+mes;
     }
     if(hora<10){
-        hora='0'+hora
+        hora='0'+hora;
     }
     if(minuto<10){
-        minuto='0'+minuto
+        minuto='0'+minuto;
     }
     if(segundo<10){
-        segundo='0'+segundo
+        segundo='0'+segundo;
     }    
     var fecha = año+'-'+mes+'-'+dia;
     var hora = hora+':'+minuto+':'+segundo;
     var hoy = fecha+' '+hora;
-/////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
     var idProducto=$("#idProducto").val();
     var codigo = $("#CodVenta").val();
     var fecha = hoy;
@@ -92,24 +119,21 @@ $("#btnRecorrer").click(function ()
     var token = $("#token").val();
 
     console.log(idProducto,codigo,fecha,tipomoneda,preciototal,vendedor,vendedorsecundario,descuento);
-    alert(descuento)
-    $.ajax({
-        url: route1,
-        headers: {'X-CSRF-TOKEN': token},
-        type: 'POST', 
-        dataType: 'json',
-        data:{CodVenta: codigo,fecha:fecha,vendedor:vendedor,vendedorsecundario:vendedorsecundario,tipomoneda:tipomoneda,preciototal:preciototal,descuento:descuento},
-        success:function(){
-          $("#msj-success").fadeIn();
-        }
-    
-    })
+    alert(descuento);
+        $.ajax({
+            url: route1,
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST', 
+            dataType: 'json',
+            data:{CodVenta: codigo,fecha:fecha,vendedor:vendedor,vendedorsecundario:vendedorsecundario,tipomoneda:tipomoneda,preciototal:preciototal,descuento:descuento},
+            success:function(){
+            $("#msj-success").fadeIn();
+            }  
+        })
 
-    $("#tabla tbody tr").each(function (index) 
-        {
+        $("#tabla tbody tr").each(function (index) {
             var campo1, campo2, campo3;
-            $(this).children("td").each(function (index2) 
-            {
+            $(this).children("td").each(function (index2) {
                 switch (index2) 
                 {
                     case 0: campo1 = $(this).text();
@@ -161,13 +185,12 @@ $("#btnRecorrer").click(function ()
                 dataType: 'json',
                 data: {"stock":nuevoStock},
             })
-        })
+        })//fin recorrido detalle venta
 
 
-
-
-    $("#tablamoneda tbody tr").each(function (index) 
+        $("#tablamoneda tbody tr").each(function (index) 
         {
+            
             var moneda, monto;
             $(this).children("td").each(function (index2) 
             {
@@ -181,27 +204,24 @@ $("#btnRecorrer").click(function ()
                 $(this).css("background-color", "#ECF8E0");
             })
 
-            var route = "http://localhost/zzz/public/pagoventa";
-            var token = $("#token").val();
+                var route = "http://localhost/zzz/public/pagoventa";
+                var token = $("#token").val();
 
-            $.ajax({
-                url: route,
-                headers: {'X-CSRF-TOKEN': token},
-                type: 'POST',   
-                dataType: 'json',
-                data:{venta:codigo,moneda: moneda,monto:monto},
+                $.ajax({
+                    url: route,
+                    headers: {'X-CSRF-TOKEN': token},
+                    type: 'POST',   
+                    dataType: 'json',
+                    data:{venta:codigo,moneda: moneda,monto:monto},
 
-                success:function(){
-                $("#msj-success").fadeIn();
-                },
-                error:function(msj){
-                $("#msj").html(msj.responseJSON.genre);
-                $("#msj-error").fadeIn();
-                }
+                    success:function(){
+                    $("#msj-success").fadeIn();
+                    },
+                    error:function(msj){
+                    $("#msj").html(msj.responseJSON.genre);
+                    $("#msj-error").fadeIn();
+                    }
                 })
-
-
-
                         $("#tablavendedores tbody tr").each(function (index) 
                         {
 
@@ -221,37 +241,35 @@ $("#btnRecorrer").click(function ()
                             var comision=(monto*3/100)/numerovendedores;
                             alert(vendedor);
 
-
-
                             var route = "http://localhost/zzz/public/ventausuario";
                             var token = $("#token").val();
 
                             $.ajax({
-                            url: route,
-                            headers: {'X-CSRF-TOKEN': token},
-                            type: 'POST',   
-                            dataType: 'json',
-                            data:{venta:codigo,usuario:vendedor,moneda: moneda,comision:comision},
+                                url: route,
+                                headers: {'X-CSRF-TOKEN': token},
+                                type: 'POST',   
+                                dataType: 'json',
+                                data:{venta:codigo,usuario:vendedor,moneda: moneda,comision:comision},
 
-                            success:function(){
-                            $("#msj-success").fadeIn();
-                            },
-                            error:function(msj){
-                            $("#msj").html(msj.responseJSON.genre);
-                            $("#msj-error").fadeIn();
-                            }
-                            
-                    })
+                                success:function(){
+                                $("#msj-success").fadeIn();
+                                },
+                                error:function(msj){
+                                $("#msj").html(msj.responseJSON.genre);
+                                $("#msj-error").fadeIn();
+                                }                            
+                            })
+                        })//fin recorrido vendedores
 
-        })
+            })//fin recorrido moneda
 
-        })
+        }
+        else{
+            alertify.success("cancelo la operacion"); 
+        }
 
-
-
-
-
-
-  
-        
+    })
+    
 });
+    
+

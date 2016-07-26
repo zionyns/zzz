@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Input;
 use Redirect;
+use App\sucursal;
 
 use Illuminate\Http\Request;
 
@@ -80,7 +81,8 @@ class AuthController extends Controller {
 
 	public function showhome1()
 	{
-		return view('home');
+		$sucursales = sucursal::all();
+		return view('home',array('sucursales'=>$sucursales));
 	}
 
 

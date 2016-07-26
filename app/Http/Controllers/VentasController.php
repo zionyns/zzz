@@ -31,9 +31,6 @@ class VentasController extends Controller {
 	 */
 	public function create()
 	
-
-
-
 	{
 		$codigos = DB::table('ventas')->lists('CodVenta');
 		$l = count($codigos);

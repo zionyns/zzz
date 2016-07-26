@@ -25,7 +25,8 @@ Route::group(['before' => 'auth'], function()
 {
     
     Route::get('/', 'AuthController@showhome1'); // Vista de inicio
-    route::resource('venta','VentasController');
+    
+    
 });
 
 

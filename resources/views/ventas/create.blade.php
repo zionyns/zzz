@@ -26,7 +26,6 @@
 							{!! Form::label('Codigo de Venta:')!!}
 							{!! Form::text('CodVenta',$codigo,['id'=>'CodVenta','class'=>'form-control','required','disabled'])!!}
 		
-		
 						</div>
 
 
@@ -294,6 +293,8 @@
 			<div class="col-md-6 col-md-offset-5">
 				
 			 {!! Form::button('Realizar pago',['id'=>'btnRecorrer','class'=>'btn btn-primary'])!!}
+
+             {!! Form::button('prueba alertify',['id'=>'mensaje','class'=>'btn btn-primary'])!!}
 
 
           

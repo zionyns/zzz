@@ -49,7 +49,8 @@ class IngresoController extends Controller {
 
 		$codigo = "Ing0".$partenumeral;
 
-		
+	
+
 		$proveedores = DB::table('proveedors')->get();
 		$productos = DB::table('productos')->get();
 		$sucursales = DB::table('sucursals')->get();
@@ -66,10 +67,6 @@ class IngresoController extends Controller {
 	public function store(Request $request)
 	{
 		//
-
-
-
-
 		if($request->ajax()){
             ingresoproducto::create($request->all());
             return response()->json([

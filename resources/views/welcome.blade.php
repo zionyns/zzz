@@ -44,6 +44,7 @@
 
 				<ul class="nav navbar-nav navbar">
 					@if (Auth::guest())
+					<!-- en este momento controlariamos si el usuario en vendedor o el usuario es administrador para mostrar el tipo de ventana principal que mostrariamos-->
 
 						<li class="dropdown"><a href="/auth/login"
 						 class="dropdown-toggle" data-toggle="dropdown">mantenimientos<b class="caret"></b></a>
@@ -84,12 +85,14 @@
 						<li ><a href="/auth/register">Register</a></li>
 
 					@else
+
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/auth/logout">Logout</a></li>
 							</ul>
 						</li>
+
 					@endif
 
 

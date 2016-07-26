@@ -8,11 +8,24 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Optional theme -->
-    <!-- Jquery -->
+    
 
 
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- Datepicker Files
+    
+
+    <!-- alertityyyyyyyyyyyyyyyyy javascript-->
+
+     <script src="{{ asset('/alertify-js/alertify.min.js') }}" type="text/javascript"></script>
+
+    <!-- alertityyyyyyyyyyyyyyyyy css-->
+
+    <link href="{{ asset('/alertify-css/alertify.core.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/alertify-css/alertify.default.css') }}" rel="stylesheet" type="text/css" />
+
+   
+
+
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     
@@ -61,9 +74,13 @@
       </ol>
     </section>
 
+
     <!-- Main content -->
     <section class="content">
 
+
+     
+  
     @yield('content')
 
      
@@ -133,6 +150,8 @@
     <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
+
+
  
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   

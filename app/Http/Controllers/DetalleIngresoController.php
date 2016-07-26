@@ -39,24 +39,26 @@ class DetalleIngresoController extends Controller {
 		
 
 		if($request->ajax()){
-            detalleingreso::create($request->all());
-            return response()->json([
-                $request->all()
-            ]);
 
+
+			$cantidad = $request->input('cantidad');
+       		$producto = $request->input('producto');
+
+			DB::table('productos')->where('CodProducto',$producto)->increment('stock', $cantidad);
+
+            detalleingreso::create($request->all());
+       		
+            return response()->json([
+                $request->input('cantidad'),
+                $request->input('producto')
+            ]);
+            
             return Redirect::to('sucursal');
 
-         	$producto =$request['producto'];
-         	$cantidad =$request['cantidad'];
-
-
-
-
-         	DB::update('update productos set cantidad = cantidad + ? where CodProducto = ?', [$cantidad,$producto]);
-
-
-
         }
+
+
+
 
 
 	}
