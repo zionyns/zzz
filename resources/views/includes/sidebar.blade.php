@@ -34,10 +34,10 @@
                 <i class="fa fa-dashboard"></i> <span>Mantenimiento</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Usuario</a></li>
-                    <li><a href="/producto"><i class="fa fa-circle-o"></i>Productos</a></li>
-                    <li><a href="/proveedor"><i class="fa fa-circle-o"></i>proveedores</a></li>
-                    <li><a href="/Joyeria/public/sucursal"><i class="fa fa-circle-o"></i> Sucursales</a></li>
+                    <li class="active"><a href="usuario"><i class="fa fa-circle-o"></i>Usuario</a></li>
+                    <li><a href="producto"><i class="fa fa-circle-o"></i>Productos</a></li>
+                    <li><a href="proveedor"><i class="fa fa-circle-o"></i>proveedores</a></li>
+                    <li><a href="sucursal"><i class="fa fa-circle-o"></i> Sucursales</a></li>
                     <li><a href="/Joyeria/public/genero"><i class="fa fa-circle-o"></i> Ejemplo Genero</a></li>
                 </ul>
             </li>
@@ -53,7 +53,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a id ="realizar-venta" href="#"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
+                    <li><a id ="realizar-venta" href="venta/create"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
                     <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>Ingreso de Productos</a></li>
                     <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i>Modificar Venta</a></li>
                 </ul>

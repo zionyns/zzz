@@ -21,18 +21,34 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-15 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading">Lista de Usuarios</div>
-				<div class="panel-body">
-					
+			<div class="box box-success">
 
-<table class="table table-hover">
+
+				
+				<div class="box-header with-border">
+              		<h3 class="box-title">LISTA DE USUARIOS</h3>
+					
+					<div class="box-tools pull-right">	
+						
+						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		
+					</div>
+
+
+            	</div>
+
+				
+				<div class="box-body">
+
+<table id="Tusuarios" class="table table-bordered table-striped">
 	<thead>
 		<th>ID</th>
+		<th>USERNAME</th>
 		<th>NOMBRE</th>
 		<th>APELLIDO</th>
 		<th>ROL</th>
-		<th>USERNAME</th>
+		
 		<th>EMAIL</th>
 		<th>SUCURSAL</th>
 		<th>OPERACIONES</th>
@@ -40,7 +56,7 @@
 	</thead>
 
 		
-		<tbody id="datos-usuarios">
+		<tbody>
 			
 
 
@@ -57,6 +73,7 @@
 
 </table>
 
+</div>
 </div>
 </div>
 </div>

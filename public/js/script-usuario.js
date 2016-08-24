@@ -74,16 +74,30 @@ $(document).ready(function(){
 
 function Carga(){
 	//tabla donde duardamos la lista de sucursales
-	var tablaDatos = $("#datos-usuarios");
+	var tablaDatos = $("#Tusuarios > tbody");
 	var route = "http://localhost/zzz/public/usuario";
 
-	$("#datos-usuarios").empty();
+	$("#Tusuarios > tbody").empty();
 
 	$.get(route, function(res){
 		$(res).each(function(key,value)
 		{
 			tablaDatos.append("<tr><td>"+value.id+"</td><td>"+value.username+"</td><td>"+value.first_name+"</td><td>"+value.last_name+"</td><td>"+value.rol+"</td><td>"+value.email+"</td><td>"+value.sucursal+"</td><td><button value="+value.id+" OnClick='Mostrar(this);' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Editar</button><button class='btn btn-danger' value="+value.id+" OnClick='Eliminar(this);'>Eliminar</button></td></tr>");
 		});
+
+		$(function () {
+   
+
+    $('#Tusuarios').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  		});
+
 	});
 }
 

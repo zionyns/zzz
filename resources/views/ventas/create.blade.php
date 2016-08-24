@@ -1,45 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-    <title>Sistema Joyeria | Dashboard</title>
-        <!-- INICIO FECHA             -->
+@extends('index')
+
+@section('content')
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <!-- Jquery -->
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- Datepicker Files
-
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    
-    <!-- FontAwesome 4.3.0 -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons 2.0.0 -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
-    <!-- Theme style -->
-    <link href="{{ asset('/dist/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-    <link href="{{ asset('/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
-
-    <!-- Bootstrap 3.3.2 -->
-    <link href="{{ asset('/bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />    
-    
-    <script src="{{asset('js/venta.js')}}"></script>
-
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
 
 
 
@@ -48,14 +12,30 @@
  	</div>
 
 
-	<div class="container-fluid">
-	<div class="row">
-		
 
-		<div class="col-md-6 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">Nueva Venta</div>
-				<div class="panel-body">
+
+	<div class="container-fluid">
+            <div class="row">
+            <div class="col-md-6 col-md-offset-15">
+            <div class="box box-success">
+
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>NUEVA VENTA</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 
 				{!! Form::open(['route'=>'venta.store' , 'method'=>'post']) !!}
 				
@@ -88,9 +68,25 @@
 	</div>
 
 		<div class="col-md-6 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">Vendedores</div>
-				<div class="panel-body">
+            <div class="box box-success">
+
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>VENDEDORES</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 					
 
 					<table id="tablavendedores" class="table">
@@ -130,12 +126,27 @@
 
 
 	<div class="container-fluid">
-	
-		<div class="col-md-15 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">agregar detalles de la venta</div>
-				<div class="panel-body">
+            <div class="row">
+            <div class="col-md-12 col-md-offset-15">
+            <div class="box box-warning">
 
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>DETALLES DE LA VENTA</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 
 	<form action="/" method="post">
 			
@@ -195,13 +206,28 @@
 
 
 
+<div class="container-fluid">
+            <div class="row">
+            <div class="col-md-16 col-md-offset-15">
+            <div class="box box-success">
 
-	<div class="container-fluid">
-	
-		<div class="col-md-15 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">detalles</div>
-				<div class="panel-body">
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>DETALLES</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 
     <div class="row">
 	<table id="tabla" class="table">
@@ -250,26 +276,39 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 
 
+<div class="container-fluid">
+            <div class="row">
+            <div class="col-md-6 col-md-offset-15">
+           <div class="box box-success">
 
 
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>METODO DE PAGO</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
 
 
+                </div>
 
-	<div class="container-fluid">
-	<div class="row">
-
-
-
-		<div class="col-md-6 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">metodo de pago</div>
-				<div class="panel-body">
-
-
+                
+                <div class="box-body">
+     
+    
 	<form action="/" method="post">
-	<div class="col-md-6">
+	
+    <div class="row">    
+                <div class="col-md-6">
+
                 {!! Form::label('Tipo de Moneda:')!!}
                 <select id="moneda" class="form-control">
                 	<option value="0" selected>seleccione moneda...</option>
@@ -278,26 +317,46 @@
                 @endforeach 
 
                 </select>
-    </div>
-    <div class="col-md-6">
+                </div>
+
+                <div class="col-md-6">
+    
                 {!! Form::label('Monto:')!!}
             	<input type="number" name="titulo" id="txtmonto" class="form-control" onblur="selecmoneda();" />    
-    </div>
+                </div>
     
     
 
-    
+    </div>
 
 	</form>
 
-     </div>
-     </div>
-     </div>
-     <div class="col-md-6 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading text-center">tabla monedas</div>
-				<div class="panel-body">
 
+     </div>
+     </div>
+     </div>
+     
+            
+            <div class="col-md-6   col-md-offset-15">
+            <div class="box box-success">
+
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title" center>TABLA MONEDAS</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 	
 		<table id="tablamoneda" class="table">
         			<thead>
@@ -644,4 +703,4 @@
 
 </script>
 </body>
-</html>
+@stop
