@@ -25,6 +25,10 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACION</li>
+
+            @if (!Auth::guest()){
+            @if(Auth::user()->rol == "administrador"){
+
             <li class="active treeview">
                 <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Mantenimiento</span> <i class="fa fa-angle-left pull-right"></i>
@@ -39,6 +43,9 @@
             </li>
             </li>
           
+            }
+            @endif
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
@@ -46,25 +53,31 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/venta"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-television"></i>Ingreso de Productos</a></li>
+                    <li><a id ="realizar-venta" href="#"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
+                    <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>Ingreso de Productos</a></li>
                     <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i>Modificar Venta</a></li>
                 </ul>
             </li>
 
+
+
+            @if(Auth::user()->rol == "administrador"){
+
             <li class="treeview">
                 <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Reportess</span>
+                <span>Reportes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>Reporte 1</a></li>
+                    <li><a href="venta"><i class="fa fa-circle-o"></i>Lista De Ventas</a></li>
                     <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
                     <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i>Reporte 2</a></li>
                     <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i>Reporte 3</a></li>
                 </ul>
             </li>
+
+            @endif
            
             <li>
                 <a href="pages/calendar.html">
@@ -84,6 +97,9 @@
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i>Peligros</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i>Informacion</a></li>
         </ul>
+        }
+        @endif
+
     </section>
     <!-- /.sidebar -->
 </aside>

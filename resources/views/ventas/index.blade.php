@@ -1,7 +1,8 @@
-@extends('home')
+@extends('index')
 
 @section('content')
 
+@include('usuario.modal')
 
 
 @if(Session::has('mensaje'))
@@ -13,47 +14,44 @@
 @endif
 
 
-
-
-
+<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-15 col-md-offset-15">
 			<div class="panel panel-default">
-				<div class="panel-heading">lista de Ventas</div>
+				<div class="panel-heading">Ventas Sucursal</div>
 				<div class="panel-body">
 					
 
-<table class="table table-bordered">
+<table class="table table-hover">
 	<thead>
+		<th>ID</th>
 		<th>CODIGO</th>
 		<th>FECHA</th>
 		<th>VENDEDOR</th>
-		<th>VENDEDOR SECUNDARIO</th>
-		<th>TIPO DE MONEDA</th>
+		<th>PRECIO TOTAL</th>
+		<th>% DESCUENTO</th>
+		<th>OPERACIONES</th>
 
 	</thead>
-	@foreach($venta as $venta)
-	<tbody>
-		<td>{{ $venta->CodVenta }}</td>
-		<td>{{ $venta->fecha }}</td>
-		<td>{{ $venta->vendedor }}</td>
-		<td>{{ $venta->vendedorsecundario }}</td>
-		<td>{{ $venta->tipomoneda }}</td>
-		<td>{{ $venta->preciototal }}</td>
-		<td>
 
-		{!! link_to_route('venta.edit', $title = 'Editar', $parameters = $venta->id, $attributes = ['class'=>'btn btn-primary']); !!}
+		
+		<tbody id="datos-ventas">
+			
 
+
+
+
+	@section('scripts')
 	
+		<script src="{{asset('js/ver_ventas.js')}}"></script>
 
-		{!! Form::open(['route'=>['venta.destroy',$venta->id], 'method'=>'DELETE'])!!}
-		{!! Form::submit('Eliminarrrr',['class'=>'btn-danger'])!!}
-		{!! Form::close()!!}
-		</td>
-	</tbody>
-	@endforeach
+	@stop	
+
+
+		</tbody>
+
 </table>
 
 </div>

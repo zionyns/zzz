@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 
 
+
 use Session;
 use Redirect;
 
@@ -17,6 +18,19 @@ class SucursalController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	public function remember(Request $request){
+
+		if ($request->ajax()) {
+
+			$sucursal = $request->input('sucursalsession');
+
+
+            return response()->json($sucursal);
+        }
+
+	}
+
 	public function index(Request $request)
 	{
 		//

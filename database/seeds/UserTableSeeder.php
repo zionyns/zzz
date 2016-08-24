@@ -49,6 +49,16 @@ class UserTableSeeder extends Seeder {
         ]);
 
         App\user::create([
+            'first_name' => 'xxx',
+            'last_name'  => 'xxx',
+            'rol'        =>  'vendedor',
+            'username'   => 'vendedor2',
+            'email'      => 'postmarr@domain.com',
+            'password'   =>  Hash::make('secret'),
+            'sucursal'   =>  'suc02'
+        ]);
+
+        App\user::create([
             'first_name' => 'Oscar',
             'last_name'  => 'Condori',
             'rol'        =>  'administrador',
@@ -77,6 +87,14 @@ class UserTableSeeder extends Seeder {
             'vendedor'        =>  'admin',
             'preciototal'   =>  50000,
             'descuento'  => 10,
+        ]);
+
+        App\venta::create([
+            'CodVenta' => 'venta-02',
+            'fecha'  => '2016-06-01 13:40:11',
+            'vendedor'        =>  'vendedor2',
+            'preciototal'   =>  800,
+            'descuento'  => 20,
         ]);
 
          App\proveedor::create([

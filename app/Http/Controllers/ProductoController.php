@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\producto;
+use App\sucursal;
 
 use Illuminate\Http\Request;
 
@@ -33,7 +34,9 @@ class ProductoController extends Controller {
 	{
 		if ($request->ajax()) {
             $producto = producto::all();
-            return response()->json($producto);
+             
+             return response()->json($producto);
+           
         }
         return view('producto.index',compact('producto'));
 

@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\detalleingreso;
-use App\ingresoproducto;
+
 use Illuminate\Http\Request;
 use DB;
 

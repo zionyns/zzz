@@ -1,125 +1,136 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+@extends('index')
 
-	{!! HTML::style('/css/app.css') !!}
-	{!! HTML::style('//fonts.googleapis.com/css?family=Roboto:400,300') !!}
+@section('content')
 
-	<!--
-
-	<link href="/css/app.css" rel="stylesheet">
-
-	<!-- Fonts -->
-	<!--<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
-</head>
-<body>
-
-
-
-<div class="container-fluid">
+	<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-15 col-md-offset-15">
 			<div class="panel panel-default">
-				<div class="panel-heading">nuevo usuario</div>
+				<div class="panel-heading">Nuevo Usuario</div>
 				<div class="panel-body">
+
+
+
+					{!! Form::open(array('id' =>'formusuario', 'class'=>'form-horizontal')) !!}
+
+
+					<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+    				<strong> usuario agregado correctamente</strong>
+					</div>
+
+
 					
-@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+					<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+
+		
 
 
-{!! Form::open(['route'=>'usuario.store' , 'method'=>'post'])!!}
-		<div class="form-group">
-				{!! Form::label('Nombre:')!!}
-				{!! Form::text('name:',null,['class'=>'form-control','required'])!!}
+					<div class="form-group">
+						{!! Form::label('username','Username :',array('class' => 'col-sm-4 control-label'))!!}
+							<div class="col-sm-5">
+								{!! Form::text('CodSucursal:','sucursal',array('id'=>'Username','class'=>'form-control','required','disabled'))!!}
+							</div>
+					</div>
+					
+					
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1"> First Name :</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="First_name" name="Nombre" placeholder="Nombre" />
+								</div>
+					</div>
+
+
+						
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Last Name :</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="Last_name" name="Direccion" placeholder="Direccion" />
+								</div>
+					</div>
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Email :</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="Email" name="Direccion" placeholder="Direccion" />
+								</div>
+					</div>
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Sucursal :</label>
+
+								<div class="col-sm-5">
+								<select class="form-control" name="" id="Sucursal">
+										
+
+										<option value="suc01">Sucursal 1</option>
+										<option value="suc2">Sucursal 2</option>
+										<option value="suc3">Sucursal 3</option>
+
+										
+								</select>
+								</div>
+					</div>
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Rol :</label>
+
+								<div class="col-sm-5">
+								<select class="form-control" name="" id="Rol">
+										
+
+										<option value="admin">Administrador</option>
+										<option value="vendedor">Vendedor</option>
+
+								</select>
+								</div>
+
+								
+					</div>
+
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Password :</label>
+								<div class="col-sm-5">
+									<input type="password" class="form-control" id="Password" name="Direccion" placeholder="Direccion" />
+								</div>
+					</div>
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Confirmar Password :</label>
+								<div class="col-sm-5">
+									<input type="password" class="form-control" id="Confirm_password" name="Direccion" placeholder="Direccion" />
+								</div>
+					</div>
+
+
+
+
+
+
+					<div class="form-group">
+						<div class="col-md-6 col-md-offset-4">
+				
+						{!!link_to('#',$title='Registrar nuevo usuario',$attributes = ['id'=>'registro-usuario','class'=>'btn btn-primary'], $secure = null)!!}
+
+					</div>
+
+	
+
+	@section('scripts')
+	
+	<script src="{{asset('js/script-usuario.js')}}"></script>		
+
+	@stop	
+
 		</div>
-		<div class="form-group">
-				{!! Form::label('correo:')!!}
-				{!! Form::email('email:',null,['class'=>'form-control' , 'required'])!!}
-		</div>
-		<div class="form-group">
-				{!! Form::label('Password:')!!}
-				{!! Form::Password('password',['class'=>'form-control','required'])!!}
-		</div>
-
-		<div class="form-group">
-                {!! Form::label('Tipo de Moneda:')!!}
-                <select id="moneda" class="form-control">
-                    <option value="sol">Sol</option>
-                    <option value="dolar">Dolar</option>
-                    <option value="euro">Euro</option>
-                </select>
-    </div>
-
-		{!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 {!! Form::close()!!}
 
-
- <!--
-				<form class="form-horizontal" role="form" method="POST"  acti = "usuario.store">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Nombre</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
-							</div>
-						</div>
-
-
-
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">correo</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Registrar
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
--->
-</body>
-</html>
+</div>
+</div>
+</div>
+</div>
+
+@stop

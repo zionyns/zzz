@@ -24,8 +24,9 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('password');
 			$table->string('sucursal');
-		
+
 			$table->foreign('sucursal')->references('CodSucursal')->on('sucursals');
+		
 			
 			$table->rememberToken();
 			$table->timestamps();

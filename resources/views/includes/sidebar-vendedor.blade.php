@@ -35,8 +35,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="venta/create"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-television"></i>Ingreso de Productos</a></li>
+                    <li><a id ="realizar-venta" href="#"><i class="fa fa-circle-o"></i>Realizar Venta</a></li>
+                    </li>
                     
                 </ul>
             </li>

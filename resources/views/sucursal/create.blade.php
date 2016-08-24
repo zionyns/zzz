@@ -1,4 +1,4 @@
-@extends('home')
+@extends('index')
 
 @section('content')
 
@@ -11,40 +11,56 @@
 
 
 
-{!! Form::open() !!}
+					{!! Form::open(array('id' =>'formsucursal', 'class'=>'form-horizontal')) !!}
 
 
-	<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
-    		<strong> sucursal agregada correctamente</strong>
-	</div>
+					<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+    				<strong> sucursal agregada correctamente</strong>
+					</div>
 
 
-	<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+					
+					<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
 		
-		<div class="form-group">
-				{!! Form::label('codigo:')!!}
-				{!! Form::text('CodSucursal',$codigo,['id'=>'CodSucursal','class'=>'form-control','required','disabled'])!!}
-		</div>
-		<div class="form-group">
-				{!! Form::label('nombre sucursal:')!!}
-				{!! Form::text('NombreSucursal',null,['id'=>'NombreSucursal','class'=>'form-control' , 'required'])!!}
-		</div>
-		<div class="form-group">
-				{!! Form::label('direccion:')!!}
-				{!! Form::text('Direccion',null,['id'=>'Direccion','class'=>'form-control','required'])!!}
-		</div>
+
+
+					<div class="form-group">
+						{!! Form::label('codigo:','codigo:',array('class' => 'col-sm-4 control-label'))!!}
+							<div class="col-sm-5">
+								{!! Form::text('CodSucursal',$codigo,array('id'=>'CodSucursal','class'=>'form-control','required','disabled'))!!}
+							</div>
+					</div>
+					
+					
+
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">Nombre</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" />
+								</div>
+					</div>
+
+
+						
+					<div class="form-group">
+								<label class="col-sm-4 control-label" for="lastname1">direccion</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="Direccion" name="Direccion" placeholder="Direccion" />
+								</div>
+					</div>
 
 
 
 
 
-		<div class="form-group">
-			<div class="col-md-6 col-md-offset-4">
+
+					<div class="form-group">
+						<div class="col-md-6 col-md-offset-4">
 				
-			{!!link_to('#',$title='Registrarrr',$attributes = ['id'=>'registro-sucursal','class'=>'btn btn-primary'], $secure = null)!!}
+						{!!link_to('#',$title='Registrarrr',$attributes = ['id'=>'registro-sucursal','class'=>'btn btn-primary'], $secure = null)!!}
 
-			</div>
+					</div>
 
 	
 

@@ -20,7 +20,12 @@ $(document).ready(function(){
 
 $("#mensaje" ).click(function() {
  
-  alertify.alert("mensaje de alerta");
+  swal({   title: "Error!",   
+            text: "Here's my error message!",   
+            type: "error",   
+            confirmButtonText: "Cool" 
+        });
+
 });
 
 
@@ -50,14 +55,7 @@ $("#total" ).focus(function() {
 
 function confirmar(){
       //un confirm
-      alertify.confirm("<p>Aquí confirmamos algo.<br><br><b>ENTER</b> y <b>ESC</b> corresponden a <b>Aceptar</b> o <b>Cancelar</b></p>", function (e) {
-            if (e) {
-                  alertify.success("Has pulsado '" + alertify.labels.ok + "'");
-            } else { 
-                        alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
-            }
-      }); 
-      return false
+
 };
 
 
@@ -65,17 +63,27 @@ function confirmar(){
 
 $("#btnRecorrer").click(function () {
 
-    alertify.confirm("desea confirmar la venta??",function(e){
 
-    if(e){
-
+    
+    swal({   title: "Are you sure?",   
+                text: "You will not be able to recover this imaginary file!",   
+                type: "warning",   showCancelButton: true,   
+                confirmButtonColor: "#DD6B55",   
+                confirmButtonText: "Yes, delete it!",   
+                cancelButtonText: "No, cancel plx!",   
+                closeOnConfirm: false,   
+                closeOnCancel: false }, 
+                
+    function(isConfirm){   
+    if (isConfirm) {  
 
     var numerovendedores = $('#tablavendedores tr').length;
     numerovendedores=numerovendedores-1;
+    
     alert('numero de filas'+numerovendedores);
 
 
-    confirm('esta seguro??');
+    
     ///////////////////////////////////////////////////////////////////////////
     var hoy = new Date();
     var dia = hoy.getDate();
@@ -110,7 +118,7 @@ $("#btnRecorrer").click(function () {
     var preciototal = $("#preciototal").val();
     var preciopagado = $("#preciopagado").val();
     var vendedor = $("#vendedor").val();
-    var vendedorsecundario = $("#vendedorsecundario").val(); 
+    var sucursal = $("#nombresucursal").text();
 
     var descuento = (preciopagado*100)/preciototal;
     var descuento = 100-descuento;
@@ -125,7 +133,7 @@ $("#btnRecorrer").click(function () {
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST', 
             dataType: 'json',
-            data:{CodVenta: codigo,fecha:fecha,vendedor:vendedor,vendedorsecundario:vendedorsecundario,tipomoneda:tipomoneda,preciototal:preciototal,descuento:descuento},
+            data:{CodVenta: codigo,fecha:fecha,vendedor:vendedor,preciototal:preciototal,descuento:descuento},
             success:function(){
             $("#msj-success").fadeIn();
             }  
@@ -263,12 +271,15 @@ $("#btnRecorrer").click(function () {
 
             })//fin recorrido moneda
 
-        }
-        else{
-            alertify.success("cancelo la operacion"); 
-        }
-
-    })
+                        swal("agregado!", 
+                            "Your imaginary file has been deleted.", 
+                            "success");   
+                    } else {     
+                        swal("Cancelled", 
+                            "Ud a cancelado la operacion :)",
+                             "error");   
+                    } 
+                });
     
 });
     

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -12,9 +13,14 @@ class UsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		//
+		 if ($request->ajax()) {
+            $usuarios = User::all();	
+            return response()->json($usuarios);
+            
+        }
+        return view('usuario.index');
 	}
 
 	/**
@@ -33,8 +39,19 @@ class UsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
+
+		if($request->ajax()){
+            User::create($request->all());
+            return response()->json([
+                $request->all()
+            ]);
+
+            return Redirect::to('sucursal');
+
+        }
+
 		return "usuario Registrado";
 	}
 

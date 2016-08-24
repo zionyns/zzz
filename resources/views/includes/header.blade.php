@@ -1,20 +1,36 @@
 <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo"><b>JOYERIA</b></a>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
         </a>
+        
+            <label id="nombresucursal" ></label>    
+            <input id="idsucursal" type="text" name="usrname" value="">
+
         <div class="navbar-custom-menu">
+            
+            
+
             <ul class="nav navbar-nav">
+
+
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
+
+                   
+
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-envelope-o"></i>
                     <span class="label label-success">4</span>
                     </a>
+
+                    
+                    
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
                         <li>
@@ -226,10 +242,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="perfil" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

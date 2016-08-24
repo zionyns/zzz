@@ -1,4 +1,4 @@
-@extends('home')
+@extends('index')
 
 @section('content')
 
@@ -16,27 +16,49 @@
 
 
 
-<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-15 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading">lista de sucursales</div>
-				<div class="panel-body">
+			<div class="box box-success">
+
+
+				
+				<div class="box-header with-border">
+              		<h3 class="box-title">lista de sucursales</h3>
+					
+					<div class="box-tools pull-right">	
+						
+						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		
+					</div>
+
+
+            	</div>
+
+				
+				<div class="box-body">
 					
 
-<table class="table table-hover">
+<table id="Tsucursal" class="table table-bordered table-striped">
+	
 	<thead>
+
 		<th>CODIGO</th>
 		<th>NOMBRE</th>
 		<th>DIRECCION</th>
 		<th>OPERACION</th>
 
 	</thead>
+		
+		
+		<tbody>
+		
 
 		
-		<tbody id="datos-sucursal">
+		</tbody>
+
+</table>
 			
 
 
@@ -49,9 +71,7 @@
 	@stop	
 
 
-		</tbody>
-
-</table>
+		
 
 </div>
 </div>

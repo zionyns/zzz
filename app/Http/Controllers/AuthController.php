@@ -6,6 +6,7 @@ use Auth;
 use Input;
 use Redirect;
 use App\sucursal;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -16,25 +17,26 @@ class AuthController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	public function recordarsucursal(){
+
+
+
+
+	}
+
+
 	public function showLogin()
     {
         // Verificamos si hay sesión activa
         if (Auth::check())
         {
         	
-        	if ((Auth::user()->rol) == 'administrador'){
-
         		return Redirect::to('/');
-        	}
-
-
-        	elseif ((Auth::user()->rol) == 'vendedor'){
-
-        		return Redirect::to('home');
-        	}                    
+        	
         }
         // Si no hay sesión activa mostramos el formulario
-      return view('login');
+        return view('login');
     }
  
     public function postLogin()
@@ -46,28 +48,30 @@ class AuthController extends Controller {
 
         ];
 
-
- 
         // Verificamos los datos
         if (Auth::attempt($data, Input::get('remember'))) // Como segundo parámetro pasámos el checkbox para sabes si queremos recordar la contraseña
         {
-
-			if ((Auth::user()->rol) == 'administrador'){
-
         		return Redirect::intended('/');
-        	}
-
-
-        	elseif ((Auth::user()->rol) == 'vendedor'){
-
-        		return Redirect::intended('home');
-        	}
             // Si nuestros datos son correctos mostramos la página de inicio
             //return Redirect::intended('/');
         }
         // Si los datos no son los correctos volvemos al login y mostramos un error
         return Redirect::back()->with('error_message', 'M1')->withInput();
 
+
+    }
+
+    public function perfil(){
+
+
+		$name=Auth::user()->username;
+
+		$usuario=DB::table('users')->where('username',$name)->get();
+
+		//$perfil = DB::table('users')->join('sucursal', 'detalleingresos.producto', '=', 'productos.CodProducto')->select('detalleingresos.*', 'productos.nombre')->get();
+
+		return view('perfil',compact('usuario'));
+		//return Redirect::to('perfil')->with('usuario', $usuario);
 
     }
  
@@ -79,17 +83,12 @@ class AuthController extends Controller {
         return Redirect::to('login')->with('error_message', 'M2');
     }
 
-	public function showhome1()
+	public function showhome()
 	{
-		$sucursales = sucursal::all();
-		return view('home',array('sucursales'=>$sucursales));
+		return view('index');
 	}
 
 
-	public function showhome2()
-	{
-		return view('hello2');
-	}
 
 
 	/**

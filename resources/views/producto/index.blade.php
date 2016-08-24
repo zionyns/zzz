@@ -1,4 +1,4 @@
-@extends('home')
+@extends('index')
 
 @section('content')
 
@@ -12,52 +12,67 @@
 </div>
 @endif
 
-
-
-
-
+     
+<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">    
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-15 col-md-offset-15">
-			<div class="panel panel-default">
-				<div class="panel-heading">lista de productos</div>
-				<div class="panel-body">
+			<div class="box box-success">
+
+
+				
+				<div class="box-header with-border">
+              		<h3 class="box-title">lista de productos</h3>
 					
+					<div class="box-tools pull-right">	
+						
+						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		
+					</div>
 
-<table class="table">
-	<thead>
 
-		<th>CODIGO</th>
-		<th>NOMBRE</th>
-		<th>TIPO</th>
-		<th>PESO</th>
-		<th>STOCK</th>
-		<th>PRECIO</th>
-		<th>SUCURSAL</th>
-		<th>OPERACIONES</th>
+            	</div>
 
-	</thead>
+				
+				<div class="box-body">
+                
+				<table  id="Tproductos" class="table table-bordered table-striped">
+					<thead>
+
+					<th>CODIGO</th>
+					<th>NOMBRE</th>
+					<th>TIPO</th>
+					<th>PESO</th>
+					<th>STOCK</th>
+					<th>PRECIO</th>
+					<th>SUCURSAL</th>
+					<th>OPERACIONES</th>
+
+					</thead>
 	
 
-	<tbody id="datos-producto">
+				<tbody>
+
+				
+
+				</tbody>
+
+				</table>	
+
 			
 
+              	</div>
 
-
-
-	@section('scripts')
+			@section('scripts')
 	
-		<script src="{{asset('js/script-producto.js')}}"></script>
+					<script src="{{asset('js/script-producto.js')}}"></script>
 
-	@stop	
-
-
-		</tbody>
-
-</table>
+					
+			@stop	
 	
-</div>
+
 </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-@extends('home')
+@extends('index')
 
 @section('content')
 
@@ -6,12 +6,12 @@
 	<div class="row">
 		<div class="col-md-15 col-md-offset-15">
 			<div class="panel panel-default">
-				<div class="panel-heading">nueva sucursal</div>
+				<div class="panel-heading">Nuevo Producto</div>
 				<div class="panel-body">
 
 
 
-{!! Form::open() !!}
+{!! Form::open(array('id' =>'formproducto', 'class'=>'form-horizontal')) !!}
 
 
 	<div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
@@ -24,34 +24,53 @@
 		
 		     
     <div class="form-group">
-        {!! Form::label('codigo:')!!}
-        {!! Form::text('CodProducto',null,['id'=>'CodProducto','class'=>'form-control','required',''])!!}
+        {!! Form::label('codigo','Codigo:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::text('CodProducto',null,['id'=>'CodProducto','class'=>'form-control','required','placeholder'=>'Codigo'])!!}
+        </div>
     </div>
+
+
     <div class="form-group">
-        {!! Form::label('nombre :')!!}
-       {!! Form::text('nombre',null,['id'=>'nombre','class'=>'form-control','required','onKeyUp'=>"this.value=this.value.toUpperCase();"])!!}
+        {!! Form::label('sucursal','Sucursal:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::text('sucursal',null,['id'=>'sucursal','class'=>'form-control','required','placeholder'=>'Sucursal'])!!}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        {!! Form::label('nombre','Nombre:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+       {!! Form::text('nombre',null,['id'=>'nombre','class'=>'form-control','required','onKeyUp'=>"this.value=this.value.toUpperCase();",'placeholder'=>'Nombre'])!!}
+       </div>
 		
     </div>
     <div class="form-group">
-        {!! Form::label('tipo:')!!}
-        {!! Form::text('tipo',null,['id'=>'tipo','class'=>'form-control','required'])!!}
+        {!! Form::label('tipo','Tipo:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::text('tipo',null,['id'=>'tipo','class'=>'form-control','required','placeholder'=>'Tipo'])!!}
+        </div>
     </div>
     <div class="form-group">
-        {!! Form::label('peso:')!!}
-        {!! Form::input('number','number',null,['id'=>'peso','class'=>'form-control' , 'required'])!!}
+        {!! Form::label('peso','Peso:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::input('number','number',null,['id'=>'peso','class'=>'form-control' , 'required','placeholder'=>'Peso'])!!}
+        </div>
     </div>
     <div class="form-group">
-        {!! Form::label('stock:')!!}
-        {!! Form::input('number','number',null,['id'=>'stock','class'=>'form-control' , 'required'])!!}
+        {!! Form::label('stock','Stock:',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::input('number','number',null,['id'=>'stock','class'=>'form-control' , 'required','placeholder'=>'Stock'])!!}
+        </div>
     </div>
     <div class="form-group">
-        {!! Form::label('precio:')!!}
-        {!! Form::input('number','number',null,['id'=>'stock','class'=>'form-control' , 'required'])!!}
+        {!! Form::label('precio','Precio',array('class' => 'col-sm-4 control-label'))!!}
+        <div class="col-sm-5">
+        {!! Form::input('number','number',null,['id'=>'stock','class'=>'form-control' , 'required','placeholder'=>'Precio'])!!}
+        </div>
     </div>
-    <div class="form-group">
-        {!! Form::label('sucursal:')!!}
-        {!! Form::text('sucursal',null,['id'=>'sucursal','class'=>'form-control','required',''])!!}
-    </div>
+    
 
 
 

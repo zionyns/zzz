@@ -27,10 +27,13 @@ class PdfController extends Controller {
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         
-        if($tipo==1){return $pdf->stream('reporte_de_usuarios');}
-        if($tipo==2){return $pdf->download('reporte_de_usuarios.pdf'); }
+        if($tipo==1){
+        	return $pdf->stream('reporte_de_usuarios');
+        }
+        if($tipo==2){
+        	return $pdf->download('reporte_de_usuarios.pdf'); 
+        }
     }
-
 
     public function crear_reporte_usuario($tipo)
     {

@@ -1,22 +1,42 @@
+
 $(document).ready(function(){
-	Carga();
+		Carga();	
 });
 
 
 function Carga(){
 	//tabla donde duardamos la lista de sucursales
-	var tablaDatos = $("#datos-producto");
-	var route = "http://localhost/zzz/public/producto";
+	var tablaDatos = $('#Tproductos > tbody');
+	var route = "/zzz/public/producto";
 
-	$("#datos-producto").empty();
+	$('#Tproductos > tbody').empty();
 
 	$.get(route, function(res){
 		$(res).each(function(key,value)
 		{
 			tablaDatos.append("<tr><td>"+value.CodProducto+"</td><td>"+value.nombre+"</td><td>"+value.tipo+"</td><td>"+value.peso+"</td><td>"+value.stock+"</td><td>"+value.precio+"</td><td>"+value.sucursal+"</td><td><button value="+value.id+" OnClick='Mostrar(this);' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Editar</button><button class='btn btn-danger' value="+value.id+" OnClick='Eliminar(this);'>Eliminar</button></td></tr>");
 		});
+
+	$(function () {
+   
+
+    $('#Tproductos').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  		});
+
+
 	});
+
 }
+
+
+
 
 
 function Eliminar(btn){

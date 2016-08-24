@@ -42,7 +42,7 @@ class VentausuarioController extends Controller {
 
             return Redirect::to('sucursal');
 
-         	
+    
 		}
 	}
 

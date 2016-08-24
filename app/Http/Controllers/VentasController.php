@@ -3,7 +3,7 @@ use App\Http\Requests;
 use App\venta;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Auth;
 use Session;
 use Redirect;
 use DB;
@@ -15,12 +15,23 @@ class VentasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+
+
+	public function index(Request $request)
 	{
 		//
-		$venta = venta::All();
 
-		return view('ventas.index',compact('venta'));
+		if ($request->ajax()) {
+
+
+			$sucursal = Auth::user()->sucursal;
+
+			$ventas = DB::table('users')->join('ventas', 'users.username', '=', 'ventas.vendedor')->select('ventas.*', 'users.sucursal')->where('users.sucursal',$sucursal)->get();
+            return response()->json($ventas);
+            
+        }
+
+		return view('ventas.index');
 
 	}
 

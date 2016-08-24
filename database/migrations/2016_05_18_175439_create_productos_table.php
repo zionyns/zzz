@@ -24,7 +24,7 @@ class CreateProductosTable extends Migration {
 			$table->string('sucursal');
 			
 			$table->foreign('sucursal')->references('CodSucursal')->on('sucursals');
-
+			
 
 			$table->timestamps();
 		});

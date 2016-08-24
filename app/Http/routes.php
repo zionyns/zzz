@@ -19,22 +19,21 @@ Route::get('login', 'AuthController@showLogin'); // Mostrar login
 Route::post('login', 'AuthController@postLogin'); // Verificar datos
 Route::get('logout', 'AuthController@logOut'); // Finalizar sesión
 
+Route::get('perfil', 'AuthController@perfil'); // Finalizar sesión
+
+
+Route::post('sucursal', 'AuthController@recordarsucursal');//recordar sucursal
+
+Route::get('/', 'AuthController@showlogin');
+
+
 
 /*Rutas privadas solo para usuarios autenticados*/
 Route::group(['before' => 'auth'], function()
 {
-    
-    Route::get('/', 'AuthController@showhome1'); // Vista de inicio
-    
+    Route::get('/', 'AuthController@showhome'); // Vista de inicio
     
 });
-
-
-Route::group(['before' => 'auth'], function()
-{
-    Route::get('home', 'AuthController@showhome2'); // Vista de inicio2
-});
-
 
 
 /////////////////////////////////////////////////
@@ -48,6 +47,8 @@ Route::resource('usuario','UsuarioController');
 
 route::	get('producto/autocomplete',array('as' =>'autocomplete','uses' =>'ProductoController@autocomplete'));
 Route::resource('producto','ProductoController');
+
+route::get('sucursal/remember',array('as' => 'remember' , 'uses'=>'SucursalController@remember' ));
 
 route::resource('sucursal','SucursalController');
 
