@@ -5,7 +5,11 @@ $(document).ready(function(){
             minlenght:1,
             autoFocus:true,
             select:function(e,ui){
+
+
                 $('#idProducto').val(ui.item.id);
+
+                $('#idproducto').val(ui.item.id);
                 $('#nombre').val(ui.item.nombre);
                 $('#precio').val(ui.item.precio);
                 $('#stock').val(ui.item.stock);
@@ -77,11 +81,14 @@ $("#btnRecorrer").click(function () {
     function(isConfirm){   
     if (isConfirm) {  
 
+    alert('bety');
+
     var numerovendedores = $('#tablavendedores tr').length;
     numerovendedores=numerovendedores-1;
     
-    alert('numero de filas'+numerovendedores);
+    //alert('numero de filas'+numerovendedores);
 
+    alert('jhon');
 
     
     ///////////////////////////////////////////////////////////////////////////
@@ -126,7 +133,7 @@ $("#btnRecorrer").click(function () {
     var route1 = "http://localhost/zzz/public/venta";
     var token = $("#token").val();
 
-    console.log(idProducto,codigo,fecha,tipomoneda,preciototal,vendedor,vendedorsecundario,descuento);
+    console.log(idProducto,codigo,fecha,tipomoneda,preciototal,vendedor,descuento);
     alert(descuento);
         $.ajax({
             url: route1,
@@ -154,6 +161,9 @@ $("#btnRecorrer").click(function () {
                             break;
                     case 4: campo5 = $(this).text();
                             break;
+
+                    case 5: campo6 = $(this).text();
+                            break;
                 }
                 $(this).css("background-color", "#ECF8E0");
             })
@@ -170,7 +180,7 @@ $("#btnRecorrer").click(function () {
                 headers: {'X-CSRF-TOKEN': token},
                 type: 'POST',   
                 dataType: 'json',
-                data:{producto: campo1,cantidad:campo4,total:campo5,venta:codigo},
+                data:{producto: campo1,cantidad:campo5,total:campo6,venta:codigo},
 
                 success:function(){
                 $("#msj-success").fadeIn();

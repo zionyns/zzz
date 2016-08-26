@@ -27,9 +27,12 @@ class VentasController extends Controller {
 			$sucursal = Auth::user()->sucursal;
 
 			$ventas = DB::table('users')->join('ventas', 'users.username', '=', 'ventas.vendedor')->select('ventas.*', 'users.sucursal')->where('users.sucursal',$sucursal)->get();
+            
+
             return response()->json($ventas);
             
         }
+
 
 		return view('ventas.index');
 
@@ -70,6 +73,9 @@ class VentasController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+
+		
+
 		if($request->ajax()){
             venta::create($request->all());
             return response()->json([

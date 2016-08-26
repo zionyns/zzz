@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('usuario.modal')
+@include('ventas.modalVenta')
 
 
 @if(Session::has('mensaje'))

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\producto;
 use App\sucursal;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -15,8 +16,13 @@ class ProductoController extends Controller {
 	
 	public function autocomplete(Request $request)
 	{
+
+		//extraemos la
+		$sucursal = Auth::user()->sucursal;
+
 		$term=$request->term;
-		$data = producto::where('CodProducto','LIKE','%'.$term.'%')
+
+		$data = producto::where('CodProducto','LIKE','%'.$term.'%')->where('sucursal',$sucursal)
 		->take(10)
 		->get();
 		$results=array();
@@ -32,13 +38,15 @@ class ProductoController extends Controller {
 	 */
 	public function index(Request $request)
 	{
+		$sucursal=Auth::user()->sucursal;
+
 		if ($request->ajax()) {
-            $producto = producto::all();
+            $producto = producto::where('sucursal',$sucursal)->get();
              
              return response()->json($producto);
            
         }
-        return view('producto.index',compact('producto'));
+       return view('producto.index',compact('producto'));
 
 
 	}

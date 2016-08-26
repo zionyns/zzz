@@ -16,14 +16,9 @@ class CreateIngresoproductosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('CodIngreso')->unique();
-			
 			$table->string('sucursal');
 			$table->string('usuario');
-
-
 			$table->datetime('fecha');
-			
-
 
 			$table->foreign('sucursal')->references('CodSucursal')->on('sucursals');
 			

@@ -17,7 +17,6 @@ class CreateSucursalsTable extends Migration {
 			
 
 			$table->increments('id');
-
 			$table->string('CodSucursal')->unique();
 			$table->string('NombreSucursal');
 			$table->string('Direccion');

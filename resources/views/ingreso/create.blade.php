@@ -1,12 +1,31 @@
 @extends('index')
 @section('content')
  
-    <div class="container-fluid">
+  
+  <div class="container-fluid">
     <div class="row">
         <div class="col-md-15 col-md-offset-15">
-            <div class="panel panel-default">
-                <div class="panel-heading">Nuevo Ingreso de Productos</div>
-                <div class="panel-body">
+            <div class="box box-success">
+
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title">NUEVO INGRESO DE PRODUCTOS</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
+
+        <div class="row">   
 
         {!! Form::open() !!}
 
@@ -43,15 +62,34 @@
         </div>
         </div>
         </div>
+        </div>
+        </div>
 
 
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-15 col-md-offset-15">
+            <div class="box box-success">
+
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title">AGREGAR DETALLES</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
 
 <div class="row">
-        <div class="col-md-15 col-md-offset-15">
-            <div class="panel panel-default">
-                <div class="panel-heading">Agregar Detalles de Ingreso</div>
-                <div class="panel-body">
-        
 
 
 <div >
@@ -105,14 +143,33 @@
     </div>
     </div>
     </div>
+    </div>
+    </div>
     
 
+    <div class="container-fluid">
+    
     <div class="row">
         <div class="col-md-15 col-md-offset-15">
-            <div class="panel panel-default">
-                <div class="panel-heading">DETALLES</div>
-                <div class="panel-body">
+            <div class="box box-success">
 
+
+                
+                <div class="box-header with-border">
+                    <h3 class="box-title">Detalles</h3>
+                    
+                    <div class="box-tools pull-right">  
+                        
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        
+                    </div>
+
+
+                </div>
+
+                
+                <div class="box-body">
     <table id="tabla" class="table">
         <thead>
             <tr>
@@ -127,6 +184,7 @@
             
         </tbody>
     </table>
+    </div>
     </div>
     </div>
     </div>
@@ -153,13 +211,7 @@
 {!! Form::close()!!}
 
 </div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+xaa
 
 <script>
 ////////////////////////////////////////////////

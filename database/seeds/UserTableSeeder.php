@@ -25,16 +25,9 @@ class UserTableSeeder extends Seeder {
 
 
         App\sucursal::create([
-            'CodSucursal' => 'suc04',
+            'CodSucursal' => 'suc03',
             'NombreSucursal'  => 'sonesta',
             'Direccion'        =>  'cultura'
-        ]);
-
-
-        App\sucursal::create([
-            'CodSucursal' => 'suc05',
-            'NombreSucursal'  => 'jose antonio',
-            'Direccion'        =>  'imperial'
         ]);
 
 
@@ -42,49 +35,69 @@ class UserTableSeeder extends Seeder {
             'first_name' => 'Jhon',
             'last_name'  => 'Zea',
             'rol'        =>  'administrador',
-            'username'   => 'admin',
+            'username'   => 'admin1',
             'email'      => 'postmaster@domain.com',
             'password'   =>  Hash::make('secret'),
             'sucursal'   =>  'suc01'
         ]);
 
         App\user::create([
-            'first_name' => 'xxx',
-            'last_name'  => 'xxx',
+            'first_name' => 'yusmersi',
+            'last_name'  => 'villafuerte',
             'rol'        =>  'vendedor',
-            'username'   => 'vendedor2',
-            'email'      => 'postmarr@domain.com',
+            'username'   => 'vendedor1',
+            'email'      => 'yu@domain.com',
             'password'   =>  Hash::make('secret'),
-            'sucursal'   =>  'suc02'
+            'sucursal'   =>  'suc01'
         ]);
+
 
         App\user::create([
             'first_name' => 'Oscar',
             'last_name'  => 'Condori',
             'rol'        =>  'administrador',
             'username'   => 'admin2',
-            'email'      => 'postmasterr@domain.com',
+            'email'      => 'Oscar@domain.com',
             'password'   =>  Hash::make('secret'),
             'sucursal'   =>  'suc02'
+        ]);
+        App\user::create([
+            'first_name' => 'carlitos',
+            'last_name'  => 'gamarra',
+            'rol'        =>  'vendedor',
+            'username'   => 'vendedor2',
+            'email'      => 'carlitos@domain.com',
+            'password'   =>  Hash::make('secret2'),
+            'sucursal'   =>  'suc02'
+        ]);
+
+        App\user::create([
+            'first_name' => 'ernes',
+            'last_name'  => 'chavez',
+            'rol'        =>  'administrador',
+            'username'   => 'admin3',
+            'email'      => 'ernes@domain.com',
+            'password'   =>  Hash::make('secret'),
+            'sucursal'   =>  'suc03'
         ]);
 
 
 
 
         App\user::create([
-            'first_name' => 'fffff',
-            'last_name'  => 'ggggggg',
+            'first_name' => 'rodolfo',
+            'last_name'  => 'perez',
             'rol'        =>  'vendedor',
-            'username'   => 'adminnn',
-            'email'      => 'postmasterrrr@domain.com',
+            'username'   => 'vendedor3',
+            'email'      => 'rodolfo@domain.com',
             'password'   =>  Hash::make('secret2'),
-            'sucursal'   =>  'suc01'
+            'sucursal'   =>  'suc03'
         ]);
 
         App\venta::create([
             'CodVenta' => 'venta-01',
             'fecha'  => '2016-06-01 13:40:11',
-            'vendedor'        =>  'admin',
+            'vendedor'        =>  'vendedor1',
             'preciototal'   =>  50000,
             'descuento'  => 10,
         ]);
@@ -128,6 +141,26 @@ class UserTableSeeder extends Seeder {
         ]);
 
         App\producto::create([
+            'CodProducto' => 'ART-AC-1',
+            'nombre'  => 'argolla 30',
+            'tipo'=>'argolla',
+            'peso'        =>  65,
+            'stock' => 4,
+            'precio' => 53,
+            'sucursal'   =>  'suc02'
+        ]);
+
+        App\producto::create([
+            'CodProducto' => 'ART-AC-1',
+            'nombre'  => 'argolla 30',
+            'tipo'=>'argolla',
+            'peso'        =>  65,
+            'stock' => 4,
+            'precio' => 53,
+            'sucursal'   =>  'suc03'
+        ]);
+
+        App\producto::create([
             'CodProducto' => 'ANI-AC-1',
             'nombre'  => 'marquesita Nro1',
             'tipo'=>'anillo',
@@ -135,6 +168,25 @@ class UserTableSeeder extends Seeder {
             'stock' => 3,
             'precio' => 72,
             'sucursal'   =>  'suc01'
+        ]);
+
+        App\producto::create([
+            'CodProducto' => 'ANI-AC-1',
+            'nombre'  => 'marquesita Nro1',
+            'tipo'=>'anillo',
+            'peso'        =>  16,
+            'stock' => 3,
+            'precio' => 72,
+            'sucursal'   =>  'suc02'
+        ]);
+        App\producto::create([
+            'CodProducto' => 'ANI-AC-1',
+            'nombre'  => 'marquesita Nro1',
+            'tipo'=>'anillo',
+            'peso'        =>  16,
+            'stock' => 3,
+            'precio' => 72,
+            'sucursal'   =>  'suc03'
         ]);
 
         App\producto::create([
@@ -148,6 +200,28 @@ class UserTableSeeder extends Seeder {
         ]);
 
         App\producto::create([
+            'CodProducto' => 'ART-AC-3',
+            'nombre'  => 'argolla 30',
+            'tipo'=>'argolla',
+            'peso'        =>  65,
+            'stock' => 4,
+            'precio' => 53,
+            'sucursal'   =>  'suc02'
+        ]);
+
+        App\producto::create([
+            'CodProducto' => 'ART-AC-3',
+            'nombre'  => 'argolla 30',
+            'tipo'=>'argolla',
+            'peso'        =>  65,
+            'stock' => 4,
+            'precio' => 53,
+            'sucursal'   =>  'suc03'
+        ]);
+
+
+
+        App\producto::create([
             'CodProducto' => 'ANI-AC-10',
             'nombre'  => 'marquesita',
             'tipo'=>'anillo',
@@ -157,18 +231,37 @@ class UserTableSeeder extends Seeder {
             'sucursal'   =>  'suc01'
         ]);
 
+        App\producto::create([
+            'CodProducto' => 'ANI-AC-10',
+            'nombre'  => 'marquesita',
+            'tipo'=>'anillo',
+            'peso'        =>  16,
+            'stock' => 5,
+            'precio' => 72,
+            'sucursal'   =>  'suc02'
+        ]);
+        App\producto::create([
+            'CodProducto' => 'ANI-AC-10',
+            'nombre'  => 'marquesita',
+            'tipo'=>'anillo',
+            'peso'        =>  16,
+            'stock' => 5,
+            'precio' => 72,
+            'sucursal'   =>  'suc03'
+        ]);
+
 
 
 
         App\ingresoproducto::create([
             'CodIngreso' => 'Ing01',
             'sucursal'  => 'suc01',
-            'usuario' =>  'admin',
+            'usuario' =>  'admin1',
             'fecha' => ''
         ]);
 
         App\detalleingreso::create([
-            'producto' => 'ART-AC-3',
+            'producto' => '1',
             'cantidad'  => 3,
             'PrecioUnitario'=>12,
             'total'        =>  36,
@@ -178,7 +271,7 @@ class UserTableSeeder extends Seeder {
 
 
         App\detalleingreso::create([
-            'producto' => 'ART-AC-1',
+            'producto' => '2',
             'cantidad'  => 4,
             'PrecioUnitario'=>15,
             'total'        =>  60,
@@ -238,7 +331,7 @@ class UserTableSeeder extends Seeder {
 
         App\ventausuario::create([
             'venta' => 'venta-01',
-            'usuario'  => 'admin',
+            'usuario'  => 'vendedor1',
             'moneda'=>'dolares',
             'comision'=>10,
         ]);
@@ -246,7 +339,7 @@ class UserTableSeeder extends Seeder {
 
         App\ventausuario::create([
             'venta' => 'venta-01',
-            'usuario'  => 'admin',
+            'usuario'  => 'vendedor1',
             'moneda'=>'soles',
             'comision'=>10,
         ]);
@@ -254,7 +347,7 @@ class UserTableSeeder extends Seeder {
 
         App\ventausuario::create([
             'venta' => 'venta-01',
-            'usuario'  => 'admin2',
+            'usuario'  => 'vendedor2',
             'moneda'=>'soles',
             'comision'=>10,
         ]);
@@ -262,7 +355,7 @@ class UserTableSeeder extends Seeder {
 
         App\ventausuario::create([
             'venta' => 'venta-01',
-            'usuario'  => 'admin2',
+            'usuario'  => 'vendedor2',
             'moneda'=>'dolares',
             'comision'=>10,
         ]);

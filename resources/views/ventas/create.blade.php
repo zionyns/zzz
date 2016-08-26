@@ -125,7 +125,7 @@
 
 
 
-	<div class="container-fluid">
+	   <div class="container-fluid">
             <div class="row">
             <div class="col-md-12 col-md-offset-15">
             <div class="box box-warning">
@@ -151,9 +151,17 @@
 	<form action="/" method="post">
 			
     <input type="hidden" name="idProducto" id="idProducto" class="form-control">
+    
     <input type="hidden" name="stock" id="stock" class="form-control">
 
 		<div class="row">
+        
+        <div class="col-md-2">
+            <label for="codigo">ID:</label>
+            
+            <input type="text" name="idproducto" id="idproducto" class="form-control" >
+        </div>
+
         <div class="col-md-2">
             <label for="codigo">Codigo:</label>
             
@@ -202,6 +210,7 @@
      </div>
      </div>
      </div>
+     </div>
      
 
 
@@ -233,6 +242,7 @@
 	<table id="tabla" class="table">
         <thead>
             <tr>
+                <th>id</th>
                 <th>Codigo</th>
                 <th>descripcion</th>
                 <th>Precio Unitario</th>
@@ -418,7 +428,7 @@
     
     @section('scripts')
     
-    
+            <script src="{{asset('js/venta.js')}}"></script>
     
     @stop   
 
@@ -550,6 +560,8 @@
     
 
     var tablaVentaProducto = document.getElementById('tabla-ventaProducto');
+
+    var txtId= document.getElementById('idproducto');
     var txtCodigo= document.getElementById('codigo');
     var txtNombre = document.getElementById('nombre');
     //var txtTipo = document.getElementById('tipo');
@@ -562,7 +574,7 @@
     var txtpreciototalanterior = document.getElementById('preciototal');
 
 
-
+    var id     = txtId.value || '';
     var codigo = txtCodigo.value || '';
     var nombre = txtNombre.value || '';
     //var tipo = txtTipo.value || '';
@@ -624,6 +636,7 @@
     // formato JSON de un item detalle // 
 
     var item = {
+        id    : id.trim(),
         codigo: codigo.trim(),
         nombre: nombre.trim(),
         //tipo: tipo.trim(),
@@ -638,6 +651,8 @@
 
     
         var tr = document.createElement('tr');
+
+        var tdi = document.createElement('td');
         var td1 = document.createElement('td');
         var td2 = document.createElement('td');
         //var td3 = document.createElement('td');
@@ -648,6 +663,7 @@
 
         var tdoperaciones = document.createElement('td');
 
+        tr.appendChild(tdi);
         tr.appendChild(td1);
         tr.appendChild(td2);
         //tr.appendChild(td3);
@@ -657,6 +673,7 @@
         tr.appendChild(td7);
         tr.appendChild(tdoperaciones);
 
+        tdi.textContent = item.id;
         td1.textContent = item.codigo;
         td2.textContent = item.nombre;
         //td3.textContent = item.tipo;

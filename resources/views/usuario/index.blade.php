@@ -48,7 +48,6 @@
 		<th>NOMBRE</th>
 		<th>APELLIDO</th>
 		<th>ROL</th>
-		
 		<th>EMAIL</th>
 		<th>SUCURSAL</th>
 		<th>OPERACIONES</th>

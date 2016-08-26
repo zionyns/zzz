@@ -15,16 +15,16 @@ class CreateDetalleventasTable extends Migration {
 		Schema::create('detalleventas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('producto');
+			$table->integer('producto')->unsigned();
 			$table->integer('cantidad');
 			$table->float('total');
 
 			$table->string('venta');
 			
-			$table->foreign('producto')->references('CodProducto')->on('productos');
+			$table->foreign('producto')->references('id')->on('productos');
 			$table->foreign('venta')->references('CodVenta')->on('ventas');
 			
-			
+				
 			$table->timestamps();
 
 
