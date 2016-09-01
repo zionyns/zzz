@@ -16,6 +16,8 @@ class CreateDetalleventasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('producto')->unsigned();
+			
+			$table->string('descripcion');
 			$table->integer('cantidad');
 			$table->float('total');
 

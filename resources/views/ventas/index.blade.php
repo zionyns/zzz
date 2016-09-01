@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('ventas.modalVenta')
+
 
 
 @if(Session::has('mensaje'))
@@ -23,6 +23,46 @@
 				<div class="panel-heading">Ventas Sucursal</div>
 				<div class="panel-body">
 					
+
+
+
+
+
+<table class="table">
+	<thead>
+		<th>ID</th>
+		<th>CODIGO</th>
+		<th>FECHA</th>
+		<th>VENDEDOR</th>
+		<th>PRECIO TOTAL</th>
+		<th>% DESCUENTO</th>
+		<th>OPERACIONES</th>
+	</thead>
+
+	@foreach($ventas as $venta)
+	<tbody >
+		<td>{{ $venta->id }}</td>
+		<td>{{ $venta->CodVenta }}</td>
+		<td>{{ $venta->fecha }}</td>
+		<td>{{ $venta->vendedor }}</td>
+		<td>{{ $venta->preciototal }}</td>
+		<td>{{ $venta->descuento }}</td>
+
+		<td>
+		{!! link_to_route('venta.edit', $title = 'Mostrar Detalles', $parameters = $venta->CodVenta, $attributes = ['class'=>'btn btn-primary']); !!}
+		<td>
+
+	
+		<td>
+		{!! Form::open(['route'=>['venta.destroy',$venta->id], 'method'=>'DELETE'])!!}
+		{!! Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+		{!! Form::close()!!}
+		</td>
+	</tbody>
+	@endforeach
+</table>
+
+
 
 <table class="table table-hover">
 	<thead>

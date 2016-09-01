@@ -32,7 +32,7 @@
 	</thead>
 
 	@foreach($proveedores as $proveedor)
-	<tbody>
+	<tbody >
 		<td>{{ $proveedor->CodProveedor }}</td>
 		<td>{{ $proveedor->nombre }}</td>
 
@@ -42,7 +42,7 @@
 	
 
 		{!! Form::open(['route'=>['proveedor.destroy',$proveedor->id], 'method'=>'DELETE'])!!}
-		{!! Form::submit('Eliminarrrr',['class'=>'btn-danger'])!!}
+		{!! Form::submit('Eliminarrrr',['class'=>'btn btn-danger'])!!}
 		{!! Form::close()!!}
 		</td>
 	</tbody>

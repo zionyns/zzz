@@ -1,5 +1,6 @@
 $(document).ready(function(){
-      $( function() {    
+      $( function() { 
+
         $( "#codigo" ).autocomplete({
             source: "http://localhost/zzz/public/producto/autocomplete",
             minlenght:1,
@@ -69,27 +70,22 @@ $("#btnRecorrer").click(function () {
 
 
     
-    swal({   title: "Are you sure?",   
+    swal({      title: "ESTAS SEGURO?",   
                 text: "You will not be able to recover this imaginary file!",   
                 type: "warning",   showCancelButton: true,   
                 confirmButtonColor: "#DD6B55",   
-                confirmButtonText: "Yes, delete it!",   
-                cancelButtonText: "No, cancel plx!",   
+                confirmButtonText: "Yes, CONFIRMAR",   
+                cancelButtonText: "No, CANCELE",   
                 closeOnConfirm: false,   
                 closeOnCancel: false }, 
                 
     function(isConfirm){   
     if (isConfirm) {  
 
-    alert('bety');
-
     var numerovendedores = $('#tablavendedores tr').length;
     numerovendedores=numerovendedores-1;
     
     //alert('numero de filas'+numerovendedores);
-
-    alert('jhon');
-
     
     ///////////////////////////////////////////////////////////////////////////
     var hoy = new Date();
@@ -133,6 +129,8 @@ $("#btnRecorrer").click(function () {
     var route1 = "http://localhost/zzz/public/venta";
     var token = $("#token").val();
 
+    alert("precio total"+preciototal);
+
     console.log(idProducto,codigo,fecha,tipomoneda,preciototal,vendedor,descuento);
     alert(descuento);
         $.ajax({
@@ -146,8 +144,10 @@ $("#btnRecorrer").click(function () {
             }  
         })
 
+
+        
         $("#tabla tbody tr").each(function (index) {
-            var campo1, campo2, campo3;
+          var campo1, campo2, campo3, campo4, campo5, campo6;    
             $(this).children("td").each(function (index2) {
                 switch (index2) 
                 {
@@ -180,7 +180,7 @@ $("#btnRecorrer").click(function () {
                 headers: {'X-CSRF-TOKEN': token},
                 type: 'POST',   
                 dataType: 'json',
-                data:{producto: campo1,cantidad:campo5,total:campo6,venta:codigo},
+                data:{ producto: campo1,descripcion:campo3,cantidad:campo5,total:campo6,venta:codigo},
 
                 success:function(){
                 $("#msj-success").fadeIn();
@@ -189,20 +189,8 @@ $("#btnRecorrer").click(function () {
                 $("#msj").html(msj.responseJSON.genre);
                 $("#msj-error").fadeIn();
                 }
-                })
-
-            var value = $("#idProducto").val();
-            var stockAnterior=$("#stock").val();
-            var nuevoStock=parseFloat(stockAnterior)-parseFloat(campo4);
-            console.log(value+"---"+stockAnterior+"----"+nuevoStock);
-            var route2="http://localhost/zzz/public/producto/"+value+"";
-            $.ajax({
-                url: route2,
-                headers: {'X-CSRF-TOKEN': token},
-                type: 'PUT',
-                dataType: 'json',
-                data: {"stock":nuevoStock},
             })
+
         })//fin recorrido detalle venta
 
 
@@ -242,8 +230,6 @@ $("#btnRecorrer").click(function () {
                 })
                         $("#tablavendedores tbody tr").each(function (index) 
                         {
-
-
                             var vendedor;
                             $(this).children("td").each(function (index2) 
                             {
@@ -281,12 +267,12 @@ $("#btnRecorrer").click(function () {
 
             })//fin recorrido moneda
 
-                        swal("agregado!", 
-                            "Your imaginary file has been deleted.", 
+                        swal("SUCCESSFULL!", 
+                            "VENTA AGREGADA CORRECTAMENTE.", 
                             "success");   
                     } else {     
-                        swal("Cancelled", 
-                            "Ud a cancelado la operacion :)",
+                        swal("CALCELADO", 
+                            "UD A CANCELADO LA OPERACION ",
                              "error");   
                     } 
                 });

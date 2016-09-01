@@ -9,8 +9,24 @@
         <span class="sr-only">Toggle navigation</span>
         </a>
         
-            <label id="nombresucursal" ></label>    
-            <input id="idsucursal" type="text" name="usrname" value="">
+
+
+         @if(Auth::user()->sucursal == "suc01")
+        <a class="logo"><b>SONESTA</b></a>
+        
+        @endif
+
+        @if(Auth::user()->sucursal == "suc02")
+        <a class="logo"><b>JOSE ANTONIO</b></a>
+        
+        @endif
+
+        @if(Auth::user()->sucursal == "suc03")
+        <a class="logo"><b>UCCHULLO</b></a>
+        
+        @endif
+
+
 
         <div class="navbar-custom-menu">
             

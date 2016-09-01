@@ -5,6 +5,8 @@ $(document).ready(function(){
 
 
 function Carga(){
+
+
 	//tabla donde duardamos la lista de sucursales
 	var tablaDatos = $('#Tproductos > tbody');
 	var route = "/zzz/public/producto";

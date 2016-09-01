@@ -17,7 +17,7 @@ class ProductoController extends Controller {
 	public function autocomplete(Request $request)
 	{
 
-		//extraemos la
+		//extraemos la sucursal
 		$sucursal = Auth::user()->sucursal;
 
 		$term=$request->term;
@@ -68,6 +68,8 @@ class ProductoController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+
+		
 		if($request->ajax()){
             producto::create($request->all());
             return response()->json([

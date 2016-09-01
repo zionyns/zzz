@@ -19,9 +19,19 @@ class VentasController extends Controller {
 
 	public function index(Request $request)
 	{
+
+			$sucursal = Auth::user()->sucursal;
+
+			$ventas = DB::table('users')->join('ventas', 'users.username', '=', 'ventas.vendedor')->select('ventas.*', 'users.sucursal')->where('users.sucursal',$sucursal)->get();
+
+			return view('ventas.index',compact('ventas'));
+
+
+
+
 		//
 
-		if ($request->ajax()) {
+		/*if ($request->ajax()) {
 
 
 			$sucursal = Auth::user()->sucursal;
@@ -34,7 +44,7 @@ class VentasController extends Controller {
         }
 
 
-		return view('ventas.index');
+		return view('ventas.index');*/
 
 	}
 
@@ -46,24 +56,20 @@ class VentasController extends Controller {
 	public function create()
 	
 	{
-		$codigos = DB::table('ventas')->lists('CodVenta');
-		$l = count($codigos);
-		$codigo = $codigos[$l-1];
-		$partes=explode("0", $codigo);
-		$parte1=$partes[0];
-		$parte2=$partes[1];
-		$int=(int)$parte2;
-		$int=$int+1;
-		$codigo=$parte1."0".$int;
 
+		$id = DB::table('ventas')->max('id');
+		$codigo = DB::table('ventas')->where('id', $id)->pluck('CodVenta');
+		$l=strlen($codigo);
+		$partenumeral = (int)substr($codigo,6,$l);
+		$partenumeral++;
+		$codigo = "venta-".$partenumeral;
 
 
 
 		$monedas = DB::table('monedas')->get();
-		$productos = DB::table('productos')->get();
 		$users = DB::table('users')->get();
 
-		return view('ventas\create',$arrayName = array('users'=>$users,'productos'=>$productos,'codigo'=>$codigo,'monedas'=>$monedas));
+		return view('ventas\create',$arrayName = array('users'=>$users,'codigo'=>$codigo,'monedas'=>$monedas));
 	}
 
 	/**
@@ -104,10 +110,11 @@ class VentasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($CodVenta)
 	{
-		
-		return view("ventas\index");
+		//$detalles = DB::table('detalleventas')->where('venta',$CodVenta)->get();
+		return view('ventas.edit',['CodVenta'=>$CodVenta]);
+
 	}
 
 	/**

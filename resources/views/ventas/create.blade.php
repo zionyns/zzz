@@ -17,10 +17,9 @@
 	<div class="container-fluid">
             <div class="row">
             <div class="col-md-6 col-md-offset-15">
-            <div class="box box-success">
-
-
-                
+            
+            
+            <div class="box box-success">       
                 <div class="box-header with-border">
                     <h3 class="box-title" center>NUEVA VENTA</h3>
                     
@@ -30,18 +29,14 @@
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
 
                     </div>
-
-
                 </div>
-
-                
                 <div class="box-body">
-
+                <div class="row">
 				{!! Form::open(['route'=>'venta.store' , 'method'=>'post']) !!}
 				
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 					
-					<div class="row">
+					
 					
 					<div class="col-md-6">
 							{!! Form::label('Codigo de Venta:')!!}
@@ -57,15 +52,14 @@
                     	<option value="{{$u->username}}">{{ $u->first_name }}</option>
                 		@endforeach  
                 		</select>
-					</div>
+	                </div>
+                    </div>	
+	</div>		
+	</div>
+	</div>
+    
 
-					
-		
-					</div>		
-	</div>
-	</div>
 	
-	</div>
 
 		<div class="col-md-6 col-md-offset-15">
             <div class="box box-success">
@@ -97,28 +91,24 @@
                 		<th>Operacion</th>
                 
             		</tr>
-        </thead>
-        <tbody id="tablab-vendedores">
+                    </thead>
+                    <tbody id="tablab-vendedores">
         	
-        	<tr>
-        		<td>{{ Auth::user()->username }}</td>
-        		<td>{{ Auth::user()->first_name }}</td>        		
-        	</tr>
+        	        <tr>
+        		      <td>{{ Auth::user()->username }}</td>
+        		      <td>{{ Auth::user()->first_name }}</td>        		
+        	       </tr>
 
         </tbody>
     </table>
 		
 	
-				</div>
-
-
-			</div>
-		</div>
-
-
-		
 	</div>
 	</div>
+    </div>
+	</div>
+	</div>
+    
 
 	
 		
@@ -148,39 +138,40 @@
                 
                 <div class="box-body">
 
-	<form action="/" method="post">
+	               <form action="/" method="post">
 			
-    <input type="hidden" name="idProducto" id="idProducto" class="form-control">
+                            <input type="hidden" name="idProducto" id="idProducto" class="form-control">
     
-    <input type="hidden" name="stock" id="stock" class="form-control">
+                            <input type="hidden" name="stock" id="stock" class="form-control">
 
-		<div class="row">
+		            
+                <div class="row">
         
-        <div class="col-md-2">
-            <label for="codigo">ID:</label>
+                <div class="col-md-2">
+                    <label for="codigo">ID:</label>
             
-            <input type="text" name="idproducto" id="idproducto" class="form-control" >
-        </div>
+                    <input type="text" name="idproducto" id="idproducto" class="form-control" >
+                </div>
 
-        <div class="col-md-2">
-            <label for="codigo">Codigo:</label>
+                <div class="col-md-2">
+                    <label for="codigo">Codigo:</label>
             
-            <input type="text" name="codigo" id="codigo" class="form-control" >
-        </div>
+                    <input type="text" name="codigo" id="codigo" class="form-control" >
+                </div>
 
-       <div class="col-md-2">
-            <label for="nombre">descripcion:</label>
-            <input type="text" name="nombre" id="nombre" class="form-control" />
-        </div>
+                <div class="col-md-2">
+                    <label for="nombre">descripcion:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" />
+                </div>
 
-     
 
-        <div class="col-md-2">
-            <label for="unitario">precio:</label>
-            <div class="input-group">
-            <div class="input-group-addon">S/.</div>
-            <input type="number" name="titulo" id="precio" class="form-control" required />
-            </div>
+
+                <div class="col-md-2">
+                <label for="unitario">precio:</label>
+                <div class="input-group">
+                <div class="input-group-addon">S/.</div>
+                            <input type="number" name="titulo" id="precio" class="form-control" required />
+                </div>
 
 
         </div>
@@ -217,7 +208,7 @@
 
 <div class="container-fluid">
             <div class="row">
-            <div class="col-md-16 col-md-offset-15">
+            <div class="col-md-12 col-md-offset-15">
             <div class="box box-success">
 
 
@@ -287,7 +278,6 @@
 </div>
 </div>
 </div>
-</div>
 
 
 <div class="container-fluid">
@@ -304,20 +294,17 @@
                         
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-
                     </div>
-
-
                 </div>
 
                 
                 <div class="box-body">
      
     
-	<form action="/" method="post">
+	            <form action="/" method="post">
 	
-    <div class="row">    
-                <div class="col-md-6">
+                <div class="row">    
+                <div class="col-md-5">
 
                 {!! Form::label('Tipo de Moneda:')!!}
                 <select id="moneda" class="form-control">
@@ -329,17 +316,25 @@
                 </select>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
     
                 {!! Form::label('Monto:')!!}
-            	<input type="number" name="titulo" id="txtmonto" class="form-control" onblur="selecmoneda();" />    
+            	<input type="number" name="titulo" id="txtmonto" class="form-control"/>    
+                </div>
+
+                <div class="col-md-3">
+    
+                {!! Form::label('.')!!}
+                
+                 <button type="button" id="agregar_moneda" class="btn btn-success form-control" onclick="selecmoneda();">Agregar</button>
+
                 </div>
     
-    
+            </form>
 
     </div>
 
-	</form>
+	
 
 
      </div>
@@ -389,7 +384,7 @@
      </div>
      </div>
      </div>
-     
+            
 
 
 <div class="container-fluid">
@@ -400,24 +395,25 @@
 
 
      <div class="form-group">
-			<div class="col-md-6 col-md-offset-5">
+			<div class="col-md-6 col-md-offset-2">
 				
-			 {!! Form::button('Realizar pago',['id'=>'btnRecorrer','class'=>'btn btn-primary'])!!}
+			 {!! Form::button('Realizar pago',['id'=>'btnRecorrer','class'=>'btn btn-success form-control'])!!}
 
              {!! Form::button('prueba alertify',['id'=>'mensaje','class'=>'btn btn-primary'])!!}
+
+             </div>
+
+    </div>
 
 
           
   
-</form>
 
 
+
 	</div>
 	</div>
-	</div>
-	</div>
-	</div>
-	</div>
+	
 	
 
 

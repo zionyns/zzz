@@ -34,8 +34,7 @@
 
 
 				</div>
-
-				
+			
 				<div class="box-body">
                 
 				<table  id="Tproductos" class="table table-bordered table-striped">

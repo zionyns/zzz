@@ -2,7 +2,8 @@
 @section('content')
  
   
-  <div class="container-fluid">
+  
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-15 col-md-offset-15">
             <div class="box box-success">
@@ -25,116 +26,57 @@
                 
                 <div class="box-body">
 
-        <div class="row">   
-
-        {!! Form::open() !!}
-
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-    
-        
-        <div class="col-md-4">
-                {!! Form::label('codigo:')!!}
-                {!! Form::text('CodIngreso',$codigo,['id'=>'CodIngreso','class'=>'form-control','required','disabled'])!!}
-        </div>
-    
-
-                
-        
-        <div class="col-md-4">
-                
-            <label for="tipo">sucursal:</label>
-            <select id="select-sucursales" class="form-control">
-                @foreach ($sucursales as $s) {
-                <option value="{{$s->CodSucursal}}">{{ $s->NombreSucursal }}</option>
-                @endforeach  
-            </select>
-
-        </div>
-     
-
-    
-       <div class="col-md-4">
-                {!! Form::label('usuario:')!!} 
-                {!! Form::text('usuario', Auth::user()->first_name ,['id'=>'usuario','class'=>'form-control','required','disabled'])!!}
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-
-
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-15 col-md-offset-15">
-            <div class="box box-success">
-
-
-                
-                <div class="box-header with-border">
-                    <h3 class="box-title">AGREGAR DETALLES</h3>
-                    
-                    <div class="box-tools pull-right">  
-                        
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        
-                    </div>
-
-
-                </div>
-
-                
-                <div class="box-body">
-
 <div class="row">
 
 
 <div >
     <form action="/" method="post">
 
-        <div class="col-md-2">
-            <label for="tipo">producto:</label>
-            <select id="tipo" class="form-control">
-                @foreach ($productos as $p) {
-                <option value="{{$p->CodProducto}}">{{ $p->nombre }}</option>
-                @endforeach  
-            </select>
+  
+           
+            
+        <div class="col-md-1">
+            <label for="tipo">id:</label>
+             <input type="text" name="idproducto" id="idproducto" class="form-control" >   
+
         </div>
-
-
         <div class="col-md-2">
-            <label for="unitario">precio unitario:</label>
-            <input type="number" name="titulo" id="unitario" class="form-control" required />
-
+            <label for="tipo">Producto:</label>
+             <input type="text" name="codigo" id="codigo" class="form-control" >   
 
         </div>
 
-        <div class="col-md-2">
-            <label for="cantidad">cantidad:</label>
-            <input type="number" name="titulo" id="cantidad" class="form-control" />
+        <div class="col-md-3">
+            <label for="tipo">Descripcion:</label>
+             <input type="text" name="descripcion" id="descripcion" class="form-control" >   
+
+        </div>
+
+
+        <div class="col-md-1">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" class="form-control" />
 
 
         </div>
         
         <div class="col-md-2">
-            <label for="cantidad">peso:</label>
-            <input type="number" name="titulo" id="peso" class="form-control" />
+            <label for="cantidad">Peso:</label>
+            <input type="number" name="peso" id="peso" class="form-control" />
 
 
         </div>
 
         <div class="col-md-2">
-            <label for="total">total:</label>
-            <input type="number" name="titulo" id="total" class="form-control" />
+            <label for="total">Precio:</label>
+            <input type="number" name="precio" id="precio" class="form-control" />
 
 
         </div>
 
         <div class="col-md-2">
-            <button type="button" id="agregar" class="btn btn-danger" onclick="agregar_fila();">Agregar</button>
+        <label for="total">.</label>
+            <button type="button" id="agregar" class="btn btn-primary" onclick="agregar_fila();">Agregar</button>
         </div>
     </form>
 
@@ -173,10 +115,11 @@
     <table id="tabla" class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Producto</th>
-                <th>unitario</th>
                 <th>Cantidad</th>
-                <th>Total</th>
+                <th>Peso</th>
+                <th>Precio</th>
                 <th>Operaciones</th>
             </tr>
         </thead>
@@ -189,6 +132,8 @@
     </div>
     </div>
     </div>
+
+
 
 
      <div class="form-group">
@@ -210,87 +155,68 @@
 
 {!! Form::close()!!}
 
-</div>
-xaa
+
 
 <script>
-////////////////////////////////////////////////
-
-
-
 
 
 function agregar_fila() {
 
-    var tablaElementos = document.getElementById('tabla-elementos');
 
 
-    var ddlTipo = document.getElementById('tipo');
-    var txtUnitario = document.getElementById('unitario');
-    var txtCantidad = document.getElementById('cantidad');
-    var txtTotal = document.getElementById('total');
-
-    var btnAgregar = document.getElementById('agregar');
-
+var tablaElementos = document.getElementById('tabla-elementos');
+     
+    var txtid       = document.getElementById('idproducto');
+    var txtproducto = document.getElementById('codigo');
+    var txtcantidad = document.getElementById('cantidad');
+    var txtpeso     = document.getElementById('peso');
+    var txtprecio   = document.getElementById('precio');
+    var btnAgregar  = document.getElementById('agregar');
     //recuperamos datos y validamos////////////////////////////
-    
-    var tipo = ddlTipo.value || '';
-    var unitario = txtUnitario.value || '';
-    var cantidad = txtCantidad.value || '';
-    var total = txtTotal.value || '';
-    
-
-  
-    
-    if (!cantidad || !cantidad.trim().length) {
-        alert('debe ingresar una yy');
-        return;
-    }
-
-    if (!total || !total.trim().length) {
-        alert('debe ingresar una zz');
-        return;
-    }
+    var idproducto  = txtid.value ||'';
+    var codproducto = txtproducto.value || '';
+    var cantidad    = txtcantidad.value || '';
+    var peso        = txtpeso.value || '';
+    var precio      = txtprecio.value || '';
 
 
-    txtUnitario.value = '';
-    txtCantidad.value = '';
-    txtTotal.value = '';
 
-    txtUnitario.focus();
+    txtcantidad.value = '';
+    txtprecio.value = '';
+    txtpeso.value = '';
 
-    ///////////////////////////////////////////////////////////////7
+    txtproducto.focus();
 
     // formato JSON de un item detalle // 
-
     var item = {
-        unitario: unitario.trim(),
+        idproducto:idproducto.trim(),
+        codproducto:codproducto.trim(),
         cantidad: cantidad.trim(),
-        total: total.trim(),
-        tipo: tipo
-         
+        peso: peso.trim(),
+        precio: precio.trim()
     };
 
-    
-
-    
         var tr = document.createElement('tr');
         var td1 = document.createElement('td');
         var td2 = document.createElement('td');
         var td3 = document.createElement('td');
         var td4 = document.createElement('td');
+        var td5 = document.createElement('td');
+
         var tdoperaciones = document.createElement('td');
 
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
+        tr.appendChild(td5);
         tr.appendChild(tdoperaciones);
 
-        td1.textContent = item.tipo;
-        td2.textContent = item.unitario;
+        td1.textContent = item.idproducto;
+        td2.textContent = item.codproducto;
         td3.textContent = item.cantidad;
-        td4.textContent = item.total;        
+        td4.textContent = item.peso;
+        td5.textContent = item.precio;        
 
         tablaElementos.appendChild(tr);
 
@@ -310,28 +236,9 @@ function agregar_fila() {
             var table = tr.parentNode;
                 table.removeChild(tr);
         }
-
-
-
-        
-
-};
-
-          //////////////////////////////////////////////
-
-
-
-
-
-
-
-          
+    
+};        
 </script>
 
-
-
-
-
-
-
+</body>
 @stop

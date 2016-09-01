@@ -53,6 +53,8 @@ route::get('sucursal/remember',array('as' => 'remember' , 'uses'=>'SucursalContr
 route::resource('sucursal','SucursalController');
 
 route::resource('venta','VentasController');
+
+route::	get('detalleventas/detalles/{venta}',array('as' =>'detalles','uses' =>'DetalleVentaController@detalles'));
 Route::resource('detalleventa','DetalleVentaController');
 
 

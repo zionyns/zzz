@@ -1,3 +1,27 @@
+$(document).ready(function(){
+      $( function() {    
+        $( "#codigo" ).autocomplete({
+            source: "http://localhost/zzz/public/producto/autocomplete",
+            minlenght:1,
+            autoFocus:true,
+            select:function(e,ui){
+
+
+                $('#idProducto').val(ui.item.id);
+
+                $('#idproducto').val(ui.item.id);
+                $('#nombre').val(ui.item.nombre);
+                $('#precio').val(ui.item.precio);
+                $('#stock').val(ui.item.stock);
+                console.log(ui.item.stock);
+            }
+        });
+    });
+});
+
+
+
+
 $("#total" ).focus(function() {
  
   var unit = $("#unitario").val();

@@ -10,10 +10,13 @@
     
     <title>INICIO DE SESION</title>
 
-    <link href="css/app.css" rel="stylesheet">
+    
+    <!-- bootstrap -->
+    <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
-    <!-- Fonts -->
-    <link href='fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <!-- jquery -->
+    <script src="{{ asset('/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
 
     
 </head>
@@ -56,19 +59,24 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
 
-            <div class="form-group">
-            {!! Form::label('username', 'username',array('class'=>'col-md-4 control-label')) !!}
+            <div class="form-group has-feedback">
+
+            
                 <div class="col-md-6">
-                {!! Form::text('username',null,array('class'=>'form-control')) !!}
+                {!! Form::text('username',null,array('class'=>'form-control' , 'placeholder'=>'username')) !!}
+                <i class="glyphicon glyphicon-user form-control-feedback"></i>
                 </div>
             </div>
+
             
 
 
-            <div class="form-group">
-            {!! Form::label('password', 'Password',['class'=>'col-md-4 control-label']) !!}
+            <div class="form-group has-feedback">
+            
                 <div class="col-md-6">       
-                {!! Form::password('password',array('class'=>'form-control')) !!}
+                {!! Form::password('password',array('class'=>'form-control', 'placeholder'=>'password')) !!}
+                <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+
                 </div>
             </div>
  
