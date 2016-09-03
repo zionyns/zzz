@@ -33,17 +33,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-
-
-
-
- 
-    <script src="{{asset('/datePicker/js/bootstrap-datepicker.js')}}"></script>
-    <!-- Languaje -->
-    <script src="{{asset('/datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-                <!-- FIN FECHA  -->
-
     
    <script src="{{ asset('/sweet/sweetalert-dev.js') }}" type="text/javascript"></script>
 

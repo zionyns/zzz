@@ -73,6 +73,7 @@ Route::resource('pagoventa','PagoventaController');
 Route::resource('ventausuario','VentausuarioController');
 
 
+Route::resource('comisiones','ComisionController');
 
 Route::get('listado_reportes', 'PdfController@index');
 Route::get('crear_reporte_usuario/{tipo}', 'PdfController@crear_reporte_usuario');
